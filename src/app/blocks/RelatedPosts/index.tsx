@@ -2,17 +2,17 @@ import clsx from 'clsx'
 import React from 'react'
 import RichText from 'src/app/components/RichText'
 
-import type { Post } from '../../../payload-types'
+import type { CaseStudy } from '../../../payload-types'
 
 import { Card } from '../../components/Card'
 
-export type RelatedPostsProps = {
+export type RelatedCaseStudiesProps = {
   className?: string
-  docs?: Post[]
+  docs?: CaseStudy[]
   introContent?: any
 }
 
-export const RelatedPosts: React.FC<RelatedPostsProps> = (props) => {
+export const RelatedCaseStudies: React.FC<RelatedCaseStudiesProps> = (props) => {
   const { className, docs, introContent } = props
 
   return (
@@ -23,7 +23,7 @@ export const RelatedPosts: React.FC<RelatedPostsProps> = (props) => {
         {docs?.map((doc, index) => {
           if (typeof doc === 'string') return null
 
-          return <Card key={index} doc={doc} relationTo="posts" showCategories />
+          return <Card key={index} doc={doc} relationTo="caseStudies" showCategories />
         })}
       </div>
     </div>

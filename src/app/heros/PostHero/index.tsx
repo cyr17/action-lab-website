@@ -1,14 +1,14 @@
 import { formatDateTime } from '@/utilities/formatDateTime'
 import React from 'react'
 
-import type { Post } from '../../../payload-types'
+import type { CaseStudy } from '../../../payload-types'
 
 import { Media } from '../../components/Media'
 
-export const PostHero: React.FC<{
-  post: Post
-}> = ({ post }) => {
-  const { categories, meta: { image: metaImage } = {}, populatedAuthors, publishedAt, title } = post
+export const CaseStudyHero: React.FC<{
+  caseStudy: CaseStudy
+}> = ({ caseStudy }) => {
+  const { categories, meta: { image: metaImage } = {}, populatedAuthors, publishedAt, title } = caseStudy
 
   return (
     <div className="relative -mt-[10.4rem] flex items-end">

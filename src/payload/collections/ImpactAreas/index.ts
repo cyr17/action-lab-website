@@ -17,7 +17,7 @@ import { MediaBlock } from '../../blocks/MediaBlock'
 import { slugField } from '../../fields/slug'
 import { generatePreviewPath } from '../../utilities/generatePreviewPath'
 import { populateAuthors } from './hooks/populateAuthors'
-import { revalidatePost } from './hooks/revalidatePost'
+import { revalidateImpactArea } from './hooks/revalidateImpactArea'
 
 import {
   MetaDescriptionField,
@@ -26,9 +26,10 @@ import {
   OverviewField,
   PreviewField,
 } from '@payloadcms/plugin-seo/fields'
+import { CaseStudies } from '../CaseStudies'
 
-export const Posts: CollectionConfig = {
-  slug: 'posts',
+export const ImpactAreas: typeof CaseStudies = {
+  slug: 'impactAreas',
   access: {
     create: authenticated,
     delete: authenticated,
@@ -40,13 +41,13 @@ export const Posts: CollectionConfig = {
     livePreview: {
       url: ({ data }) => {
         const path = generatePreviewPath({
-          path: `/posts/${typeof data?.slug === 'string' ? data.slug : ''}`,
+          path: `/impactAreas/${typeof data?.slug === 'string' ? data.slug : ''}`,
         })
         return `${process.env.NEXT_PUBLIC_SERVER_URL}${path}`
       },
     },
     preview: (doc) =>
-      generatePreviewPath({ path: `/posts/${typeof doc?.slug === 'string' ? doc.slug : ''}` }),
+      generatePreviewPath({ path: `/impactAreas/${typeof doc?.slug === 'string' ? doc.slug : ''}` }),
     useAsTitle: 'title',
   },
   fields: [
@@ -84,7 +85,7 @@ export const Posts: CollectionConfig = {
         {
           fields: [
             {
-              name: 'relatedPosts',
+              name: 'relatedCaseStudies',
               type: 'relationship',
               admin: {
                 position: 'sidebar',
@@ -97,8 +98,9 @@ export const Posts: CollectionConfig = {
                 }
               },
               hasMany: true,
-              relationTo: 'posts',
+              relationTo: 'impactAreas',
             },
+            
             {
               name: 'categories',
               type: 'relationship',
@@ -196,7 +198,7 @@ export const Posts: CollectionConfig = {
     slugField(),
   ],
   hooks: {
-    afterChange: [revalidatePost],
+    afterChange: [revalidateImpactArea],
     afterRead: [populateAuthors],
   },
   versions: {

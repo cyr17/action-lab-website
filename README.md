@@ -67,9 +67,9 @@ See the [Collections](https://payloadcms.com/docs/beta/configuration/collections
 
   For additional help, see the official [Auth Example](https://github.com/payloadcms/payload/tree/beta/examples/auth) or the [Authentication](https://payloadcms.com/docs/beta/authentication/overview#authentication-overview) docs.
 
-- #### Posts
+- #### CaseStudies
 
-  Posts are used to generated blog posts, news articles, or any other type of content that is published over time. All posts are layout builder enabled so you can generate unique layouts for each post using layout-building blocks, see [Layout Builder](#layout-builder) for more details. Posts are also draft-enabled so you can preview them before publishing them to your website, see [Draft Preview](#draft-preview) for more details.
+  CaseStudies are used to generated blog caseStudies, news articles, or any other type of content that is published over time. All caseStudies are layout builder enabled so you can generate unique layouts for each caseStudy using layout-building blocks, see [Layout Builder](#layout-builder) for more details. CaseStudies are also draft-enabled so you can preview them before publishing them to your website, see [Draft Preview](#draft-preview) for more details.
 
 - #### Pages
 
@@ -77,11 +77,11 @@ See the [Collections](https://payloadcms.com/docs/beta/configuration/collections
 
 - #### Media
 
-  This is the uploads enabled collection used by pages, posts, and projects to contain media like images, videos, downloads, and other assets.
+  This is the uploads enabled collection used by pages, caseStudies, and projects to contain media like images, videos, downloads, and other assets.
 
 - #### Categories
 
-  A taxonomy used to group posts together. Categories can be nested inside of one another, for example "News > Technology". See the official [Payload Nested Docs Plugin](https://payloadcms.com/docs/beta/plugins/nested-docs) for more details.
+  A taxonomy used to group caseStudies together. Categories can be nested inside of one another, for example "News > Technology". See the official [Payload Nested Docs Plugin](https://payloadcms.com/docs/beta/plugins/nested-docs) for more details.
 
 ### Globals
 
@@ -100,7 +100,7 @@ See the [Globals](https://payloadcms.com/docs/configuration/globals) docs for de
 Basic access control is setup to limit access to various content based based on publishing status.
 
 - `users`: Users can access the admin panel and create or edit content.
-- `posts`: Everyone can access published posts, but only users can create, update, or delete them.
+- `caseStudies`: Everyone can access published caseStudies, but only users can create, update, or delete them.
 - `pages`: Everyone can access published pages, but only users can create, update, or delete them.
 
 For more details on how to extend this functionality, see the [Payload Access Control](https://payloadcms.com/docs/beta/access-control/overview#access-control) docs.
@@ -123,9 +123,9 @@ A deep editorial experience that allows complete freedom to focus just on writin
 
 ## Draft Preview
 
-All posts and pages are draft-enabled so you can preview them before publishing them to your website. To do this, these collections use [Versions](https://payloadcms.com/docs/beta/configuration/collections#versions) with `drafts` set to `true`. This means that when you create a new post, project, or page, it will be saved as a draft and will not be visible on your website until you publish it. This also means that you can preview your draft before publishing it to your website. To do this, we automatically format a custom URL which redirects to your front-end to securely fetch the draft version of your content.
+All caseStudies and pages are draft-enabled so you can preview them before publishing them to your website. To do this, these collections use [Versions](https://payloadcms.com/docs/beta/configuration/collections#versions) with `drafts` set to `true`. This means that when you create a new caseStudy, project, or page, it will be saved as a draft and will not be visible on your website until you publish it. This also means that you can preview your draft before publishing it to your website. To do this, we automatically format a custom URL which redirects to your front-end to securely fetch the draft version of your content.
 
-Since the front-end of this template is statically generated, this also means that pages, posts, and projects will need to be regenerated as changes are made to published documents. To do this, we use an `afterChange` hook to regenerate the front-end when a document has changed and its `_status` is `published`.
+Since the front-end of this template is statically generated, this also means that pages, caseStudies, and projects will need to be regenerated as changes are made to published documents. To do this, we use an `afterChange` hook to regenerate the front-end when a document has changed and its `_status` is `published`.
 
 For more details on how to extend this functionality, see the official [Draft Preview Example](https://github.com/payloadcms/payload/tree/beta/examples/draft-preview).
 
@@ -169,7 +169,7 @@ Although Next.js includes a robust set of caching strategies out of the box, Pay
 
 ## Development
 
-To spin up this example locally, follow the [Quick Start](#quick-start). Then [Seed](#seed) the database with a few pages, posts, and projects.
+To spin up this example locally, follow the [Quick Start](#quick-start). Then [Seed](#seed) the database with a few pages, caseStudies, and projects.
 
 ### Docker
 
@@ -183,7 +183,7 @@ That's it! The Docker instance will help you get up and running quickly while al
 
 ### Seed
 
-To seed the database with a few pages, posts, and projects you can click the 'seed database' link from the admin panel.
+To seed the database with a few pages, caseStudies, and projects you can click the 'seed database' link from the admin panel.
 
 The seed script will also create a demo user for demonstration purposes only:
 

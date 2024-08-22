@@ -46,12 +46,12 @@ export const Archive: Block = {
       admin: {
         condition: (_, siblingData) => siblingData.populateBy === 'collection',
       },
-      defaultValue: 'posts',
+      defaultValue: 'caseStudies',
       label: 'Collections To Show',
       options: [
         {
-          label: 'Posts',
-          value: 'posts',
+          label: 'CaseStudies',
+          value: 'caseStudies',
         },
       ],
     },
@@ -83,7 +83,7 @@ export const Archive: Block = {
       },
       hasMany: true,
       label: 'Selection',
-      relationTo: ['posts'],
+      relationTo: ['caseStudies'],
     },
   ],
   labels: {

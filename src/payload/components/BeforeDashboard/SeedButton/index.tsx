@@ -42,7 +42,7 @@ export const SeedButton: React.FC = () => {
 
   return (
     <Fragment>
-      <a href="/api/seed" onClick={handleClick} rel="noopener noreferrer" target="_blank">
+      <a href="/home" onClick={handleClick} rel="noopener noreferrer" target="_blank">
         Seed your database
       </a>
       {message}

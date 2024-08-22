@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 
-import { RelatedPosts } from '@/blocks/RelatedPosts'
+import { RelatedCaseStudies } from '@/blocks/RelatedCaseStudies'
 import { PayloadRedirects } from '@/components/PayloadRedirects'
 import configPromise from '@payload-config'
 import { getPayloadHMR } from '@payloadcms/next/utilities'
@@ -8,29 +8,29 @@ import { draftMode, headers } from 'next/headers'
 import React, { cache } from 'react'
 import RichText from 'src/app/components/RichText'
 
-import type { Post } from '../../../../payload-types'
+import type { CaseStudy } from '../../../../payload-types'
 
-import { PostHero } from '../../../heros/PostHero'
+import { CaseStudyHero } from '../../../heros/CaseStudyHero'
 import { generateMeta } from '../../../utilities/generateMeta'
 import PageClient from './page.client'
 
 export async function generateStaticParams() {
   const payload = await getPayloadHMR({ config: configPromise })
-  const posts = await payload.find({
-    collection: 'posts',
+  const caseStudies = await payload.find({
+    collection: 'caseStudies',
     draft: false,
     limit: 1000,
     overrideAccess: false,
   })
 
-  return posts.docs?.map(({ slug }) => slug)
+  return caseStudies.docs?.map(({ slug }) => slug)
 }
 
-export default async function Post({ params: { slug = '' } }) {
-  const url = '/posts/' + slug
-  const post = await queryPostBySlug({ slug })
+export default async function CaseStudy({ params: { slug = '' } }) {
+  const url = '/caseStudies/' + slug
+  const caseStudy = await queryCaseStudyBySlug({ slug })
 
-  if (!post) return <PayloadRedirects url={url} />
+  if (!caseStudy) return <PayloadRedirects url={url} />
 
   return (
     <article className="pt-16 pb-16">
@@ -39,20 +39,20 @@ export default async function Post({ params: { slug = '' } }) {
       {/* Allows redirects for valid pages too */}
       <PayloadRedirects disableNotFound url={url} />
 
-      <PostHero post={post} />
+      <CaseStudyHero caseStudy={caseStudy} />
 
       <div className="flex flex-col gap-4 pt-8">
         <div className="container lg:grid lg:grid-cols-[1fr_48rem_1fr] grid-rows-[1fr]">
           <RichText
             className="lg:grid lg:grid-cols-subgrid col-start-1 col-span-3 grid-rows-[1fr]"
-            content={post.content}
+            content={caseStudy.content}
             enableGutter={false}
           />
         </div>
 
-        <RelatedPosts
+        <RelatedCaseStudies
           className="mt-12"
-          docs={post.relatedPosts.filter((post) => typeof post === 'object')}
+          docs={caseStudy.relatedCaseStudies.filter((caseStudy) => typeof caseStudy === 'object')}
         />
       </div>
     </article>
@@ -60,18 +60,18 @@ export default async function Post({ params: { slug = '' } }) {
 }
 
 export async function generateMetadata({ params: { slug } }): Promise<Metadata> {
-  const post = await queryPostBySlug({ slug })
+  const caseStudy = await queryCaseStudyBySlug({ slug })
 
-  return generateMeta({ doc: post })
+  return generateMeta({ doc: caseStudy })
 }
 
-const queryPostBySlug = cache(async ({ slug }: { slug: string }) => {
+const queryCaseStudyBySlug = cache(async ({ slug }: { slug: string }) => {
   const { isEnabled: draft } = draftMode()
 
   const payload = await getPayloadHMR({ config: configPromise })
 
   const result = await payload.find({
-    collection: 'posts',
+    collection: 'caseStudies',
     draft,
     limit: 1,
     overrideAccess: true,

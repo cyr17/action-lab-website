@@ -23,23 +23,23 @@ import { fileURLToPath } from 'url'
 import Categories from './payload/collections/Categories'
 import { Media } from './payload/collections/Media'
 import { Pages } from './payload/collections/Pages'
-import { Posts } from './payload/collections/Posts'
+import { CaseStudies } from './payload/collections/CaseStudies'
+import { ImpactAreas } from './payload/collections/ImpactAreas'
 import Users from './payload/collections/Users'
-import { seed } from './payload/endpoints/seed'
 import { Footer } from './payload/globals/Footer/Footer'
 import { Header } from './payload/globals/Header/Header'
 import { revalidateRedirects } from './payload/hooks/revalidateRedirects'
 import { GenerateTitle, GenerateURL } from '@payloadcms/plugin-seo/types'
-import { Page, Post } from 'src/payload-types'
+import { Page, CaseStudy } from 'src/payload-types'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
-const generateTitle: GenerateTitle<Post | Page> = ({ doc }) => {
+const generateTitle: GenerateTitle<CaseStudy | Page> = ({ doc }) => {
   return doc?.title ? `${doc.title} | Payload Website Template` : 'Payload Website Template'
 }
 
-const generateURL: GenerateURL<Post | Page> = ({ doc }) => {
+const generateURL: GenerateURL<CaseStudy | Page> = ({ doc }) => {
   return doc?.slug
     ? `${process.env.NEXT_PUBLIC_SERVER_URL}/${doc.slug}`
     : process.env.NEXT_PUBLIC_SERVER_URL
@@ -90,7 +90,7 @@ export default buildConfig({
         BoldFeature(),
         ItalicFeature(),
         LinkFeature({
-          enabledCollections: ['pages', 'posts'],
+          enabledCollections: ['pages', 'caseStudies'],
           fields: ({ defaultFields }) => {
             const defaultFieldsWithoutUrl = defaultFields.filter((field) => {
               if ('name' in field && field.name === 'url') return false
@@ -119,22 +119,17 @@ export default buildConfig({
       connectionString: process.env.DATABASE_URI || '',
     },
   }),
-  collections: [Pages, Posts, Media, Categories, Users],
+  collections: [Pages, CaseStudies, Media, Categories, Users,ImpactAreas],
   cors: [process.env.PAYLOAD_PUBLIC_SERVER_URL || ''].filter(Boolean),
   csrf: [process.env.PAYLOAD_PUBLIC_SERVER_URL || ''].filter(Boolean),
   endpoints: [
     // The seed endpoint is used to populate the database with some example data
     // You should delete this endpoint before deploying your site to production
-    {
-      handler: seed,
-      method: 'get',
-      path: '/seed',
-    },
   ],
   globals: [Header, Footer],
   plugins: [
     redirectsPlugin({
-      collections: ['pages', 'posts'],
+      collections: ['pages', 'caseStudies','impactAreas'],
       overrides: {
         // @ts-expect-error
         fields: ({ defaultFields }) => {
