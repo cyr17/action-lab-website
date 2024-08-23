@@ -11,12 +11,13 @@ import { CollectionArchive } from '../../components/CollectionArchive'
 
 export const ArchiveBlock: React.FC<
   ArchiveBlockProps & {
-    id?: string
+    id?: string,
+    collection: 'posts' | 'solutions' | 'caseStudies' | 'impactAreas',
   }
 > = async (props) => {
-  const { id, categories, introContent, limit = 3, populateBy, selectedDocs } = props
+  const { id, categories, introContent, limit = 3, populateBy, selectedDocs, relationTo } = props
 
-  let posts: Post[] = []
+  let items: any[] = []
 
   if (populateBy === 'collection') {
     const payload = await getPayloadHMR({ config: configPromise })
@@ -26,8 +27,8 @@ export const ArchiveBlock: React.FC<
       else return category
     })
 
-    const fetchedPosts = await payload.find({
-      collection: 'posts',
+    const fetchedItems = await payload.find({
+      collection: relationTo,
       depth: 1,
       limit,
       ...(flattenedCategories && flattenedCategories.length > 0
@@ -41,10 +42,10 @@ export const ArchiveBlock: React.FC<
         : {}),
     })
 
-    posts = fetchedPosts.docs
+    items = fetchedItems.docs
   } else {
-    posts = selectedDocs.map((post) => {
-      if (typeof post.value === 'object') return post.value
+    items = selectedDocs.map((item) => {
+      if (typeof item.value === 'object') return item.value
     })
   }
 
@@ -55,7 +56,7 @@ export const ArchiveBlock: React.FC<
           <RichText className="ml-0 max-w-[48rem]" content={introContent} enableGutter={false} />
         </div>
       )}
-      <CollectionArchive posts={posts} />
+      <CollectionArchive items={items} />
     </div>
   )
 }
