@@ -37,7 +37,7 @@ export default async function Page({ params: { pageNumber = 2 } }) {
         />
       </div>
 
-      <CollectionArchive items={solutions.docs} />
+      <CollectionArchive items={solutions.docs} collection={'solutions'} />
 
       <div className="container">
         {solutions.totalPages > 1 && <Pagination page={solutions.page} totalPages={solutions.totalPages} />}

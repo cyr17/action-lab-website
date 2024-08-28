@@ -4,11 +4,13 @@ import React from 'react'
 import { Card } from '../Card'
 
 export type Props = {
-  items: any[]
+  items: any[],
+  collection: any,
 }
 
 export const CollectionArchive: React.FC<Props> = (props) => {
   const { items } = props
+  const { collection } = props
 
   return (
     <div className={cn('container')}>
@@ -18,7 +20,7 @@ export const CollectionArchive: React.FC<Props> = (props) => {
             if (typeof result === 'object' && result !== null) {
               return (
                 <div className="col-span-4" key={index}>
-                  <Card className="h-full" doc={result} relationTo="solutions" showCategories />
+                  <Card className="h-full" doc={result} relationTo={collection} showCategories />
                 </div>
               )
             }
