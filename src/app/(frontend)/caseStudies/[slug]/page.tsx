@@ -13,6 +13,7 @@ import { CaseStudyHero } from '../../../heros/CaseStudyHero'
 import { generateMeta } from '../../../utilities/generateMeta'
 import PageClient from './page.client'
 import { RelatedCaseStudies } from '@/blocks/RelatedCaseStudies'
+import { RelatedSolutions } from '@/blocks/RelatedSolutions'
 
 export async function generateStaticParams() {
   const payload = await getPayloadHMR({ config: configPromise })
@@ -52,7 +53,11 @@ export default async function CaseStudy({ params: { slug = '' } }) {
 
         <RelatedCaseStudies
           className="mt-12"
-          docs={caseStudy.relatedCaseStudies.filter((soltution) => typeof soltution === 'object')}
+          docs={caseStudy.relatedCaseStudies.filter((caseStudy) => typeof caseStudy === 'object')}
+        />
+        <RelatedSolutions
+          className="mt-12"
+          docs={caseStudy.relatedSolutions.filter((solution) => typeof solution === 'object')}
         />
       </div>
     </article>

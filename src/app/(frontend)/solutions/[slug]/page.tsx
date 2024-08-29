@@ -13,6 +13,8 @@ import { SolutionHero } from '../../../heros/SolutionHero'
 import { generateMeta } from '../../../utilities/generateMeta'
 import PageClient from './page.client'
 import { RelatedSolutions } from '@/blocks/RelatedSolutions'
+import { RelatedCaseStudies } from '@/blocks/RelatedCaseStudies'
+import { OtherSolutions } from '@/blocks/OtherSolutions'
 
 export async function generateStaticParams() {
   const payload = await getPayloadHMR({ config: configPromise })
@@ -50,13 +52,18 @@ export default async function Solution({ params: { slug = '' } }) {
           />
         </div>
 
-        <RelatedSolutions
+        <RelatedCaseStudies
           className="mt-12"
-          docs={solution.relatedSolutions.filter((soltution) => typeof soltution === 'object')}
+          docs={solution.relatedCaseStudies.filter((caseStudy) => typeof caseStudy === 'object')}
+        />
+
+        <OtherSolutions
+          className="mt-12"
         />
       </div>
     </article>
   )
+  // Change related Solutions to other solutions
 }
 
 export async function generateMetadata({ params: { slug } }): Promise<Metadata> {

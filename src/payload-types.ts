@@ -434,6 +434,7 @@ export interface CaseStudy {
     [k: string]: unknown;
   };
   relatedCaseStudies?: (number | CaseStudy)[] | null;
+  relatedSolutions?: (number | Solution)[] | null;
   impactAreas?: (number | ImpactArea)[] | null;
   meta?: {
     title?: string | null;
@@ -475,7 +476,7 @@ export interface Solution {
     };
     [k: string]: unknown;
   };
-  relatedSolutions?: (number | Solution)[] | null;
+  relatedCaseStudies?: (number | CaseStudy)[] | null;
   impactAreas?: (number | ImpactArea)[] | null;
   meta?: {
     title?: string | null;

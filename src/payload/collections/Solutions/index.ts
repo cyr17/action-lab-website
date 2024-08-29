@@ -85,7 +85,7 @@ export const Solutions: CollectionConfig = {
         {
           fields: [
             {
-              name: 'relatedSolutions',
+              name: 'relatedCaseStudies',
               type: 'relationship',
               admin: {
                 position: 'sidebar',
@@ -98,7 +98,7 @@ export const Solutions: CollectionConfig = {
                 }
               },
               hasMany: true,
-              relationTo: 'solutions',
+              relationTo: 'caseStudies',
             },
             {
               name: 'impactAreas',

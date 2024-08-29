@@ -23,7 +23,7 @@ export const RelatedImpactAreas: React.FC<RelatedImpactAreasProps> = (props) => 
         {docs?.map((doc, index) => {
           if (typeof doc === 'string') return null
 
-          return <Card key={index} doc={doc} relationTo="impactAreas" showCategories />
+          return <Card key={index} doc={doc} relationTo="impactAreas" showImpactAreas  />
         })}
       </div>
     </div>

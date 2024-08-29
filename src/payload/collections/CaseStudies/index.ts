@@ -101,6 +101,22 @@ export const CaseStudies: CollectionConfig = {
               relationTo: 'caseStudies',
             },
             {
+              name: 'relatedSolutions',
+              type: 'relationship',
+              admin: {
+                position: 'sidebar',
+              },
+              filterOptions: ({ id }) => {
+                return {
+                  id: {
+                    not_in: [id],
+                  },
+                }
+              },
+              hasMany: true,
+              relationTo: 'solutions',
+            },
+            {
               name: 'impactAreas',
               type: 'relationship',
               admin: {
