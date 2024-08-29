@@ -13,29 +13,30 @@ export const ArchiveBlock: React.FC<
   ArchiveBlockProps & {
     id?: string,
     collection: 'posts' | 'solutions' | 'caseStudies' | 'impactAreas',
+    impactAreas: any[],
   }
 > = async (props) => {
-  const { id, categories, introContent, limit = 3, populateBy, selectedDocs, relationTo } = props
+  const { id,impactAreas, introContent, limit = 3, populateBy, selectedDocs, relationTo } = props
 
   let items: any[] = []
 
   if (populateBy === 'collection') {
     const payload = await getPayloadHMR({ config: configPromise })
 
-    const flattenedCategories = categories.map((category) => {
-      if (typeof category === 'object') return category.id
-      else return category
+    const flattenedImpactAreas = impactAreas.map((impactArea) => {
+      if (typeof impactArea === 'object') return impactArea.id
+      else return impactArea
     })
 
     const fetchedItems = await payload.find({
       collection: relationTo,
       depth: 1,
       limit,
-      ...(flattenedCategories && flattenedCategories.length > 0
+      ...(flattenedImpactAreas && flattenedImpactAreas.length > 0
         ? {
             where: {
-              categories: {
-                in: flattenedCategories,
+              impactAreas: {
+                in: flattenedImpactAreas,
               },
             },
           }

@@ -159,7 +159,7 @@ export default buildConfig({
       },
     }),
     nestedDocsPlugin({
-      collections: ['categories'],
+      collections: ['impactAreas'],
     }),
     seoPlugin({
       generateTitle,

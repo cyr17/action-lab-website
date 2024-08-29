@@ -197,7 +197,7 @@ export interface Page {
         } | null;
         populateBy?: ('collection' | 'selection') | null;
         relationTo?: ('posts' | 'caseStudies' | 'solutions' | 'impactAreas') | null;
-        categories?: (number | Category)[] | null;
+        impactAreas?: (number | ImpactArea)[] | null;
         limit?: number | null;
         selectedDocs?:
           | (
@@ -293,15 +293,44 @@ export interface Media {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "categories".
+ * via the `definition` "impactAreas".
  */
-export interface Category {
+export interface ImpactArea {
   id: number;
   title: string;
-  parent?: (number | null) | Category;
+  content: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  meta?: {
+    title?: string | null;
+    image?: number | Media | null;
+    description?: string | null;
+  };
+  publishedAt?: string | null;
+  authors?: (number | User)[] | null;
+  populatedAuthors?:
+    | {
+        id?: string | null;
+        name?: string | null;
+      }[]
+    | null;
+  slug?: string | null;
+  parent?: (number | null) | ImpactArea;
   breadcrumbs?:
     | {
-        doc?: (number | null) | Category;
+        doc?: (number | null) | ImpactArea;
         url?: string | null;
         label?: string | null;
         id?: string | null;
@@ -309,6 +338,25 @@ export interface Category {
     | null;
   updatedAt: string;
   createdAt: string;
+  _status?: ('draft' | 'published') | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "users".
+ */
+export interface User {
+  id: number;
+  name?: string | null;
+  updatedAt: string;
+  createdAt: string;
+  email: string;
+  resetPasswordToken?: string | null;
+  resetPasswordExpiration?: string | null;
+  salt?: string | null;
+  hash?: string | null;
+  loginAttempts?: number | null;
+  lockUntil?: string | null;
+  password?: string | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -334,6 +382,7 @@ export interface Post {
   };
   relatedPosts?: (number | Post)[] | null;
   categories?: (number | Category)[] | null;
+  impactAreas?: (number | ImpactArea)[] | null;
   meta?: {
     title?: string | null;
     image?: number | Media | null;
@@ -354,21 +403,13 @@ export interface Post {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "users".
+ * via the `definition` "categories".
  */
-export interface User {
+export interface Category {
   id: number;
-  name?: string | null;
+  title: string;
   updatedAt: string;
   createdAt: string;
-  email: string;
-  resetPasswordToken?: string | null;
-  resetPasswordExpiration?: string | null;
-  salt?: string | null;
-  hash?: string | null;
-  loginAttempts?: number | null;
-  lockUntil?: string | null;
-  password?: string | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -393,7 +434,7 @@ export interface CaseStudy {
     [k: string]: unknown;
   };
   relatedCaseStudies?: (number | CaseStudy)[] | null;
-  categories?: (number | Category)[] | null;
+  impactAreas?: (number | ImpactArea)[] | null;
   meta?: {
     title?: string | null;
     image?: number | Media | null;
@@ -435,48 +476,7 @@ export interface Solution {
     [k: string]: unknown;
   };
   relatedSolutions?: (number | Solution)[] | null;
-  categories?: (number | Category)[] | null;
-  meta?: {
-    title?: string | null;
-    image?: number | Media | null;
-    description?: string | null;
-  };
-  publishedAt?: string | null;
-  authors?: (number | User)[] | null;
-  populatedAuthors?:
-    | {
-        id?: string | null;
-        name?: string | null;
-      }[]
-    | null;
-  slug?: string | null;
-  updatedAt: string;
-  createdAt: string;
-  _status?: ('draft' | 'published') | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "impactAreas".
- */
-export interface ImpactArea {
-  id: number;
-  title: string;
-  content: {
-    root: {
-      type: string;
-      children: {
-        type: string;
-        version: number;
-        [k: string]: unknown;
-      }[];
-      direction: ('ltr' | 'rtl') | null;
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-      indent: number;
-      version: number;
-    };
-    [k: string]: unknown;
-  };
-  categories?: (number | Category)[] | null;
+  impactAreas?: (number | ImpactArea)[] | null;
   meta?: {
     title?: string | null;
     image?: number | Media | null;

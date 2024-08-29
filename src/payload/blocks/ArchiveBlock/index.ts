@@ -68,14 +68,14 @@ export const Archive: Block = {
       ],
     },
     {
-      name: 'categories',
+      name: 'impactAreas',
       type: 'relationship',
       admin: {
         condition: (_, siblingData) => siblingData.populateBy === 'collection',
       },
       hasMany: true,
-      label: 'Categories To Show',
-      relationTo: 'categories',
+      label: 'Impact Areas To Show',
+      relationTo: 'impactAreas',
     },
     {
       name: 'limit',

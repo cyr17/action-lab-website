@@ -101,13 +101,13 @@ export const CaseStudies: CollectionConfig = {
               relationTo: 'caseStudies',
             },
             {
-              name: 'categories',
+              name: 'impactAreas',
               type: 'relationship',
               admin: {
                 position: 'sidebar',
               },
               hasMany: true,
-              relationTo: 'categories',
+              relationTo: 'impactAreas',
             },
           ],
           label: 'Meta',

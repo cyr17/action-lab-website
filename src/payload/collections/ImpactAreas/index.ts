@@ -9,6 +9,7 @@ import {
   lexicalEditor,
 } from '@payloadcms/richtext-lexical'
 
+import { anyone } from '../../access/anyone'
 import { authenticated } from '../../access/authenticated'
 import { authenticatedOrPublished } from '../../access/authenticatedOrPublished'
 import { Banner } from '../../blocks/Banner'
@@ -25,14 +26,13 @@ import {
   OverviewField,
   PreviewField,
 } from '@payloadcms/plugin-seo/fields'
-import { Posts } from '../Posts'
 
 export const ImpactAreas: CollectionConfig = {
   slug: 'impactAreas',
   access: {
     create: authenticated,
     delete: authenticated,
-    read: authenticatedOrPublished,
+    read: anyone,
     update: authenticated,
   },
   admin: {
@@ -80,20 +80,6 @@ export const ImpactAreas: CollectionConfig = {
             },
           ],
           label: 'Content',
-        },
-        {
-          fields: [
-            {
-              name: 'categories',
-              type: 'relationship',
-              admin: {
-                position: 'sidebar',
-              },
-              hasMany: true,
-              relationTo: 'categories',
-            },
-          ],
-          label: 'Meta',
         },
         {
           name: 'meta',

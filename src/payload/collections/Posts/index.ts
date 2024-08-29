@@ -108,6 +108,15 @@ export const Posts: CollectionConfig = {
               hasMany: true,
               relationTo: 'categories',
             },
+            {
+              name: 'impactAreas',
+              type: 'relationship',
+              admin: {
+                position: 'sidebar',
+              },
+              hasMany: true,
+              relationTo: 'impactAreas',
+            },
           ],
           label: 'Meta',
         },
