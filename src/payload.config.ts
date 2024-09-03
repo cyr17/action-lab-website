@@ -30,19 +30,20 @@ import { Footer } from './payload/globals/Footer/Footer'
 import { Header } from './payload/globals/Header/Header'
 import { revalidateRedirects } from './payload/hooks/revalidateRedirects'
 import { GenerateTitle, GenerateURL } from '@payloadcms/plugin-seo/types'
-import { Page, Post,Solution,CaseStudy,ImpactArea } from 'src/payload-types'
+import { Page, Post,Solution,CaseStudy,ImpactArea,Person } from 'src/payload-types'
 import { CaseStudies } from './payload/collections/CaseStudies'
 import { Solutions } from './payload/collections/Solutions'
 import { ImpactAreas } from './payload/collections/ImpactAreas'
+import { People } from './payload/collections/People'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
-const generateTitle: GenerateTitle<Post | Page | Solution | CaseStudy | ImpactArea> = ({ doc }) => {
+const generateTitle: GenerateTitle<Post | Page | Solution | CaseStudy | ImpactArea | Person> = ({ doc }) => {
   return doc?.title ? `${doc.title} | Payload Website Template` : 'Payload Website Template'
 }
 
-const generateURL: GenerateURL<Post | Page | Solution | CaseStudy | ImpactArea> = ({ doc }) => {
+const generateURL: GenerateURL<Post | Page | Solution | CaseStudy | ImpactArea | Person> = ({ doc }) => {
   return doc?.slug
     ? `${process.env.NEXT_PUBLIC_SERVER_URL}/${doc.slug}`
     : process.env.NEXT_PUBLIC_SERVER_URL
@@ -93,7 +94,7 @@ export default buildConfig({
         BoldFeature(),
         ItalicFeature(),
         LinkFeature({
-          enabledCollections: ['pages', 'posts','caseStudies','solutions','impactAreas'],
+          enabledCollections: ['caseStudies','solutions','impactAreas','people'],
           fields: ({ defaultFields }) => {
             const defaultFieldsWithoutUrl = defaultFields.filter((field) => {
               if ('name' in field && field.name === 'url') return false
@@ -122,7 +123,7 @@ export default buildConfig({
       connectionString: process.env.DATABASE_URI || '',
     },
   }),
-  collections: [Pages, Posts, Media, Categories, Users,CaseStudies,Solutions,ImpactAreas],
+  collections: [Pages, Posts, Media, Categories, Users,CaseStudies,Solutions,ImpactAreas,People],
   cors: [process.env.PAYLOAD_PUBLIC_SERVER_URL || ''].filter(Boolean),
   csrf: [process.env.PAYLOAD_PUBLIC_SERVER_URL || ''].filter(Boolean),
   endpoints: [

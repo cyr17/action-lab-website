@@ -19,6 +19,7 @@ export interface Config {
     caseStudies: CaseStudy;
     solutions: Solution;
     impactAreas: ImpactArea;
+    people: Person;
     redirects: Redirect;
     forms: Form;
     'form-submissions': FormSubmission;
@@ -196,7 +197,7 @@ export interface Page {
           [k: string]: unknown;
         } | null;
         populateBy?: ('collection' | 'selection') | null;
-        relationTo?: ('posts' | 'caseStudies' | 'solutions' | 'impactAreas') | null;
+        relationTo?: ('posts' | 'caseStudies' | 'solutions' | 'impactAreas' | 'people') | null;
         impactAreas?: (number | ImpactArea)[] | null;
         limit?: number | null;
         selectedDocs?:
@@ -216,6 +217,10 @@ export interface Page {
               | {
                   relationTo: 'impactAreas';
                   value: number | ImpactArea;
+                }
+              | {
+                  relationTo: 'people';
+                  value: number | Person;
                 }
             )[]
           | null;
@@ -491,6 +496,39 @@ export interface Solution {
         name?: string | null;
       }[]
     | null;
+  slug?: string | null;
+  updatedAt: string;
+  createdAt: string;
+  _status?: ('draft' | 'published') | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "people".
+ */
+export interface Person {
+  id: number;
+  title: string;
+  content: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  categories?: (number | Category)[] | null;
+  meta?: {
+    title?: string | null;
+    image?: number | Media | null;
+    description?: string | null;
+  };
   slug?: string | null;
   updatedAt: string;
   createdAt: string;

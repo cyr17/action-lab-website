@@ -12,7 +12,7 @@ import { CollectionArchive } from '../../components/CollectionArchive'
 export const ArchiveBlock: React.FC<
   ArchiveBlockProps & {
     id?: string,
-    collection: 'posts' | 'solutions' | 'caseStudies' | 'impactAreas',
+    collection: 'posts' | 'solutions' | 'caseStudies' | 'impactAreas' | 'people',
     impactAreas: any[],
   }
 > = async (props) => {

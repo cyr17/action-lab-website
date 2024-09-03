@@ -65,6 +65,10 @@ export const Archive: Block = {
           label: 'Impact Areas',
           value: 'impactAreas',
         },
+        {
+          label: 'People',
+          value: 'people',
+        },
       ],
     },
     {
@@ -95,7 +99,7 @@ export const Archive: Block = {
       },
       hasMany: true,
       label: 'Selection',
-      relationTo: ['posts','caseStudies','solutions','impactAreas'],
+      relationTo: ['posts','caseStudies','solutions','impactAreas','people'],
     },
   ],
   labels: {
