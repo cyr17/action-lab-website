@@ -6,7 +6,7 @@ export const Logo = () => {
     <img
       alt="Payload Logo"
       className="max-w-[9.375rem] invert dark:invert-0"
-      src="/api/media/file/logo.svg"
+      src="/api/media/file/logo-inverted.svg"
     />
   )
 }
