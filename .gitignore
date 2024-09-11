@@ -8,3 +8,15 @@ node_modules
 
 # Payload default media upload directory
 public/media/
+
+#ignore bin 
+bin/*
+
+#ignore all files which has background in their name
+**/background*
+
+#ignore all images in the images directory
+images/*.png
+
+#ignore all files in the bin
+bin/
