@@ -9,7 +9,7 @@
         "src": "package.json",
         "use": "@vercel/node",
         "config": {
-          "installCommand": "pnpm install"
+          "installCommand": "npm install --legacy-peer-deps"
         }
       }
     ]
