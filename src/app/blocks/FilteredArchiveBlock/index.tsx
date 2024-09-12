@@ -8,6 +8,7 @@ import RichText from 'src/app/components/RichText'
 import { CollectionArchive } from '../../components/CollectionArchive'
 import { FilteredArchiveBlockProps } from './types'
 
+// to dynamically filter based on user selected impact areas
 export const ArchiveBlock: React.FC<
   FilteredArchiveBlockProps & {
     id?: string,
