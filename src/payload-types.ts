@@ -229,6 +229,53 @@ export interface Page {
         blockType: 'archive';
       }
     | {
+        introContent?: {
+          root: {
+            type: string;
+            children: {
+              type: string;
+              version: number;
+              [k: string]: unknown;
+            }[];
+            direction: ('ltr' | 'rtl') | null;
+            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+            indent: number;
+            version: number;
+          };
+          [k: string]: unknown;
+        } | null;
+        populateBy?: ('collection' | 'selection') | null;
+        relationTo?: ('posts' | 'caseStudies' | 'solutions' | 'impactAreas' | 'people') | null;
+        limit?: number | null;
+        selectedDocs?:
+          | (
+              | {
+                  relationTo: 'posts';
+                  value: number | Post;
+                }
+              | {
+                  relationTo: 'caseStudies';
+                  value: number | CaseStudy;
+                }
+              | {
+                  relationTo: 'solutions';
+                  value: number | Solution;
+                }
+              | {
+                  relationTo: 'impactAreas';
+                  value: number | ImpactArea;
+                }
+              | {
+                  relationTo: 'people';
+                  value: number | Person;
+                }
+            )[]
+          | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'filteredArchive';
+      }
+    | {
         form: number | Form;
         enableIntro?: boolean | null;
         introContent?: {

@@ -4,6 +4,7 @@ import React, { Fragment } from 'react'
 import type { Page } from '../../../payload-types'
 
 import { ArchiveBlock } from '../../blocks/ArchiveBlock'
+import { FilteredArchiveBlock } from '@/blocks/FilteredArchiveBlock'
 import { CallToActionBlock } from '../../blocks/CallToAction'
 import { ContentBlock } from '../../blocks/Content'
 import { FormBlock } from '../../blocks/Form'
@@ -12,6 +13,7 @@ import { toKebabCase } from '../../utilities/toKebabCase'
 
 const blockComponents = {
   archive: ArchiveBlock,
+  filteredArchive: FilteredArchiveBlock,
   content: ContentBlock,
   cta: CallToActionBlock,
   formBlock: FormBlock,

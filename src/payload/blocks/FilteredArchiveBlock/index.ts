@@ -93,7 +93,7 @@ export const FilteredArchive: Block = {
     },
   ],
   labels: {
-    plural: 'Archives',
-    singular: 'Archive',
+    plural: 'Filtered Archives',
+    singular: 'Filtered Archive',
   },
 }
