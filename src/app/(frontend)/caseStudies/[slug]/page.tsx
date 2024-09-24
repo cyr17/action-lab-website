@@ -24,10 +24,14 @@ export async function generateStaticParams() {
     overrideAccess: false,
   })
 
-  return caseStudies.docs?.map(({ slug }) => slug)
+  return caseStudies.docs
+  ?.filter((doc)=>{
+    return doc.slug!== 'casestudies'
+  })
+  .map(({ slug }) => slug)
 }
 
-export default async function CaseStudy({ params: { slug = '' } }) {
+export default async function CaseStudy({ params: { slug = 'casestudies' } }) {
   const url = '/caseStudies/' + slug
   const caseStudy = await queryCaseStudyBySlug({ slug })
 
@@ -64,7 +68,7 @@ export default async function CaseStudy({ params: { slug = '' } }) {
   )
 }
 
-export async function generateMetadata({ params: { slug } }): Promise<Metadata> {
+export async function generateMetadata({ params: { slug = 'casestudies' } }): Promise<Metadata> {
   const caseStudy = await queryCaseStudyBySlug({ slug })
 
   return generateMeta({ doc: caseStudy })

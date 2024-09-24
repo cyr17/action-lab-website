@@ -25,10 +25,14 @@ export async function generateStaticParams() {
     overrideAccess: false,
   })
 
-  return solutions.docs?.map(({ slug }) => slug)
+  return solutions.docs
+  ?.filter((doc)=>{
+    return doc.slug!== 'solutions'
+  })
+  .map(({ slug }) => slug)
 }
 
-export default async function Solution({ params: { slug = '' } }) {
+export default async function Solution({ params: { slug = 'solutions' } }) {
   const url = '/solutions/' + slug
   const solution = await querySolutionBySlug({ slug })
 
@@ -66,7 +70,7 @@ export default async function Solution({ params: { slug = '' } }) {
   // Change related Solutions to other solutions
 }
 
-export async function generateMetadata({ params: { slug } }): Promise<Metadata> {
+export async function generateMetadata({ params: { slug = 'solutions' } }): Promise<Metadata> {
   const solution = await querySolutionBySlug({ slug })
 
   return generateMeta({ doc: solution })
