@@ -139,6 +139,7 @@ export interface Page {
         columns?:
           | {
               size?: ('oneThird' | 'half' | 'twoThirds' | 'full') | null;
+              alignment?: ('left' | 'center' | 'right') | null;
               richText?: {
                 root: {
                   type: string;
@@ -511,6 +512,7 @@ export interface CaseStudy {
         columns?:
           | {
               size?: ('oneThird' | 'half' | 'twoThirds' | 'full') | null;
+              alignment?: ('left' | 'center' | 'right') | null;
               richText?: {
                 root: {
                   type: string;
@@ -739,6 +741,7 @@ export interface Solution {
         columns?:
           | {
               size?: ('oneThird' | 'half' | 'twoThirds' | 'full') | null;
+              alignment?: ('left' | 'center' | 'right') | null;
               richText?: {
                 root: {
                   type: string;

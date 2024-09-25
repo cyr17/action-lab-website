@@ -49,13 +49,11 @@ export default async function CaseStudy({ params: { slug = 'casestudies' } }) {
 
       <div className="flex flex-col gap-4 pt-8">
         <div className="container lg:grid lg:grid-cols-[1fr_48rem_1fr] grid-rows-[1fr]">
-          <Blocks blocks={caseStudy.layout} />
-          {/* <RichText
-            className="lg:grid lg:grid-cols-subgrid col-start-1 col-span-3 grid-rows-[1fr]"
-            content={caseStudy.content}
-            enableGutter={false}
-          /> */}
+          <div className="lg:col-start-2 lg:col-span-1">
+            <Blocks blocks={caseStudy.layout} />
+          </div>
         </div>
+
 
         <RelatedCaseStudies
           className="mt-12"

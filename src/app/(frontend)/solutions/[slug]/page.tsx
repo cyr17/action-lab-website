@@ -51,10 +51,9 @@ export default async function Solution({ params: { slug = 'solutions' } }) {
 
       <div className="flex flex-col gap-4 pt-8">
         <div className="container lg:grid lg:grid-cols-[1fr_48rem_1fr] grid-rows-[1fr]">
-          
-          
-          <Blocks blocks={solution.layout} />
-          
+          <div className="lg:col-start-2 lg:col-span-1">
+            <Blocks blocks={solution.layout} />
+          </div>
         </div>
 
         <RelatedCaseStudies

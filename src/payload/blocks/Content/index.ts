@@ -34,6 +34,25 @@ const columnFields: Field[] = [
     ],
   },
   {
+    name: 'alignment',
+    type: 'select',
+    defaultValue: 'left',
+    options: [
+      {
+        label: 'Left',
+        value: 'left',
+      },
+      {
+        label: 'Center',
+        value: 'center',
+      },
+      {
+        label: 'Right',
+        value: 'right',
+      },
+    ],
+  },
+  {
     name: 'richText',
     type: 'richText',
     editor: lexicalEditor({
