@@ -15,6 +15,8 @@ import PageClient from './page.client'
 import { RelatedSolutions } from '@/blocks/RelatedSolutions'
 import { RelatedCaseStudies } from '@/blocks/RelatedCaseStudies'
 import { OtherSolutions } from '@/blocks/OtherSolutions'
+import { Blocks } from '@/components/Blocks'
+
 
 export async function generateStaticParams() {
   const payload = await getPayloadHMR({ config: configPromise })
@@ -37,7 +39,7 @@ export default async function Solution({ params: { slug = 'solutions' } }) {
   const solution = await querySolutionBySlug({ slug })
 
   if (!solution) return <PayloadRedirects url={url} />
-
+  
   return (
     <article className="pt-16 pb-16">
       <PageClient />
@@ -49,11 +51,10 @@ export default async function Solution({ params: { slug = 'solutions' } }) {
 
       <div className="flex flex-col gap-4 pt-8">
         <div className="container lg:grid lg:grid-cols-[1fr_48rem_1fr] grid-rows-[1fr]">
-          <RichText
-            className="lg:grid lg:grid-cols-subgrid col-start-1 col-span-3 grid-rows-[1fr]"
-            content={solution.content}
-            enableGutter={false}
-          />
+          
+          
+          <Blocks blocks={solution.layout} />
+          
         </div>
 
         <RelatedCaseStudies

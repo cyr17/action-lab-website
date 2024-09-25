@@ -27,6 +27,11 @@ import {
   PreviewField,
 } from '@payloadcms/plugin-seo/fields'
 import { Posts } from '../Posts'
+import { CallToAction } from '../../blocks/CallToAction'
+import { Content } from '../../blocks/Content'
+import { Archive } from '../../blocks/ArchiveBlock'
+import { FilteredArchive } from '../../blocks/FilteredArchiveBlock'
+import { FormBlock } from '../../blocks/Form'
 
 export const Solutions: CollectionConfig = {
   slug: 'solutions',
@@ -62,21 +67,9 @@ export const Solutions: CollectionConfig = {
         {
           fields: [
             {
-              name: 'content',
-              type: 'richText',
-              editor: lexicalEditor({
-                features: ({ rootFeatures }) => {
-                  return [
-                    ...rootFeatures,
-                    HeadingFeature({ enabledHeadingSizes: ['h1', 'h2', 'h3', 'h4'] }),
-                    BlocksFeature({ blocks: [Banner, Code, MediaBlock] }),
-                    FixedToolbarFeature(),
-                    InlineToolbarFeature(),
-                    HorizontalRuleFeature(),
-                  ]
-                },
-              }),
-              label: false,
+              name: 'layout',
+              type: 'blocks',
+              blocks: [CallToAction, Content, MediaBlock, Archive,FilteredArchive, FormBlock],
               required: true,
             },
           ],

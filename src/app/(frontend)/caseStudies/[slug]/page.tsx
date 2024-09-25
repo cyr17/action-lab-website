@@ -14,6 +14,7 @@ import { generateMeta } from '../../../utilities/generateMeta'
 import PageClient from './page.client'
 import { RelatedCaseStudies } from '@/blocks/RelatedCaseStudies'
 import { RelatedSolutions } from '@/blocks/RelatedSolutions'
+import { Blocks } from '@/components/Blocks'
 
 export async function generateStaticParams() {
   const payload = await getPayloadHMR({ config: configPromise })
@@ -48,11 +49,12 @@ export default async function CaseStudy({ params: { slug = 'casestudies' } }) {
 
       <div className="flex flex-col gap-4 pt-8">
         <div className="container lg:grid lg:grid-cols-[1fr_48rem_1fr] grid-rows-[1fr]">
-          <RichText
+          <Blocks blocks={caseStudy.layout} />
+          {/* <RichText
             className="lg:grid lg:grid-cols-subgrid col-start-1 col-span-3 grid-rows-[1fr]"
             content={caseStudy.content}
             enableGutter={false}
-          />
+          /> */}
         </div>
 
         <RelatedCaseStudies
