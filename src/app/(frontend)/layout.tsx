@@ -28,7 +28,9 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           <LivePreviewListener />
 
           <Header />
-          {children}
+          <main className="pt-24">
+            {children}
+          </main>
           <Footer />
         </Providers>
       </body>
