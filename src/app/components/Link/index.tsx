@@ -57,10 +57,15 @@ export const CMSLink: React.FC<CMSLinkType> = (props) => {
 
   return (
     <Button asChild className={className} size={size} variant={appearance}>
-      <Link className={cn(className)} href={href || url} {...newTabProps}>
-        {label && label}
-        {children && children}
-      </Link>
+      <Link className={cn('flex items-center', className)} href={href || url} {...newTabProps}>
+  {label && <span>{label}</span>}
+  {children && <span>{children}</span>}
+
+  {/* SVG with padding */}
+  <svg className="ml-2" width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M1 1.125H18M18 1.125V17.625M18 1.125L1.5 17.875" stroke="#FCFCFC" strokeWidth="2" />
+  </svg>
+</Link>
     </Button>
   )
 }
