@@ -20,7 +20,7 @@ export const HighImpactHero: React.FC<Page['hero']> = ({ links, media, richText 
     {/* Free-floating left-side content */}
     <div className="container mb-32 z-20 relative flex-grow-0 flex-shrink-0 basis-[30%] p-8">
       <div className="max-w-[34rem]">
-        <RichText className="mt-[16rem]" content={richText} enableGutter={false} />
+        <RichText className="mt-[12rem]" content={richText} enableGutter={false} />
         <br />
         {Array.isArray(links) && links.length > 0 && (
           <ul className="flex gap-4">
