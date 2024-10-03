@@ -30,7 +30,6 @@ export const FilteredArchiveBlock: React.FC<
   })
 
   impactAreas = fetchedImpactAreas.docs
-  console.log(impactAreas)
   // render pills or tabs for user to select impact areas
 
   // use a hook to store selected impact areas

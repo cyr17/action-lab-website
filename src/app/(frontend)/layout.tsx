@@ -8,15 +8,30 @@ import React from 'react'
 import { AdminBar } from '../components/AdminBar'
 import { Footer } from '../components/Footer'
 import { Header } from '../components/Header'
+import { MegaMenu } from '../components/MegaMenu'
 import { LivePreviewListener } from '../components/LivePreviewListener'
 import { Providers } from '../providers'
 import { InitTheme } from '../providers/Theme/InitTheme'
 import { mergeOpenGraph } from '../utilities/mergeOpenGraph'
 import './globals.css'
+import { ModalProvider,ModalContainer } from '@faceless-ui/modal'
+import { WindowInfoProvider } from '@faceless-ui/window-info'
+import { GridProvider } from '@faceless-ui/css-grid'
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html className={cn(GeistSans.variable, GeistMono.variable)} lang="en" suppressHydrationWarning>
+     <WindowInfoProvider
+      breakpoints={{
+        xs: `(max-width: 560px)`,
+        sm: `(min-width: 640px)`,
+        md: `(min-width: 768px)`,
+        lg: `(min-width: 1024px)`,
+        xl: `(min-width: 1280px)`,
+      }}>
+      <ModalProvider>
+        <GridProvider>
+
       <head>
         <InitTheme />
         <link href="/favicon.ico" rel="icon" sizes="32x32" />
@@ -34,6 +49,10 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           <Footer />
         </Providers>
       </body>
+        <ModalContainer />
+        </GridProvider>
+      </ModalProvider>
+      </WindowInfoProvider>
     </html>
   )
 }

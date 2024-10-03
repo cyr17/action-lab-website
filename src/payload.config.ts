@@ -34,6 +34,7 @@ import { CaseStudies } from './payload/collections/CaseStudies'
 import { Solutions } from './payload/collections/Solutions'
 import { ImpactAreas } from './payload/collections/ImpactAreas'
 import { People } from './payload/collections/People'
+import { MegaMenu } from './payload/globals/MegaMenu/MegaMenu'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -128,7 +129,7 @@ export default buildConfig({
   endpoints: [
    
   ],
-  globals: [Header, Footer],
+  globals: [Header, Footer,MegaMenu],
   plugins: [
     redirectsPlugin({
       collections: ['pages', 'posts','caseStudies','solutions','impactAreas'],
