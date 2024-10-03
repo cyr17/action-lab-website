@@ -13,7 +13,7 @@ import { slugField } from '../../fields/slug'
 import { populatePublishedAt } from '../../hooks/populatePublishedAt'
 import { generatePreviewPath } from '../../utilities/generatePreviewPath'
 import { revalidatePage } from './hooks/revalidatePage'
-
+import { SideBySide } from '../../blocks/SideBySide'
 import {
   MetaDescriptionField,
   MetaImageField,
@@ -61,7 +61,7 @@ export const Pages: CollectionConfig = {
             {
               name: 'layout',
               type: 'blocks',
-              blocks: [CallToAction, Content, MediaBlock, Archive,FilteredArchive, FormBlock],
+              blocks: [CallToAction, Content, SideBySide, MediaBlock, Archive,FilteredArchive, FormBlock],
               required: true,
             },
           ],

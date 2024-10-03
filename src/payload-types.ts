@@ -140,6 +140,7 @@ export interface Page {
           | {
               size?: ('oneThird' | 'half' | 'twoThirds' | 'full') | null;
               alignment?: ('left' | 'center' | 'right') | null;
+              textColor?: ('black' | 'white' | 'grey' | 'red') | null;
               richText?: {
                 root: {
                   type: string;
@@ -173,6 +174,77 @@ export interface Page {
         id?: string | null;
         blockName?: string | null;
         blockType: 'content';
+      }
+    | {
+        leftSide?:
+          | {
+              textColor?: ('black' | 'white' | 'grey' | 'red') | null;
+              richText?: {
+                root: {
+                  type: string;
+                  children: {
+                    type: string;
+                    version: number;
+                    [k: string]: unknown;
+                  }[];
+                  direction: ('ltr' | 'rtl') | null;
+                  format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                  indent: number;
+                  version: number;
+                };
+                [k: string]: unknown;
+              } | null;
+              enableLink?: boolean | null;
+              link?: {
+                type?: ('reference' | 'custom') | null;
+                newTab?: boolean | null;
+                reference?: {
+                  relationTo: 'pages';
+                  value: number | Page;
+                } | null;
+                url?: string | null;
+                label: string;
+                appearance?: ('default' | 'outline') | null;
+              };
+              id?: string | null;
+            }[]
+          | null;
+        rightSide?:
+          | {
+              textColor?: ('black' | 'white' | 'grey' | 'red') | null;
+              richText?: {
+                root: {
+                  type: string;
+                  children: {
+                    type: string;
+                    version: number;
+                    [k: string]: unknown;
+                  }[];
+                  direction: ('ltr' | 'rtl') | null;
+                  format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                  indent: number;
+                  version: number;
+                };
+                [k: string]: unknown;
+              } | null;
+              enableLink?: boolean | null;
+              link?: {
+                type?: ('reference' | 'custom') | null;
+                newTab?: boolean | null;
+                reference?: {
+                  relationTo: 'pages';
+                  value: number | Page;
+                } | null;
+                url?: string | null;
+                label: string;
+                appearance?: ('default' | 'outline') | null;
+              };
+              id?: string | null;
+            }[]
+          | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'sideBySide';
       }
     | {
         position?: ('default' | 'fullscreen') | null;
@@ -513,6 +585,7 @@ export interface CaseStudy {
           | {
               size?: ('oneThird' | 'half' | 'twoThirds' | 'full') | null;
               alignment?: ('left' | 'center' | 'right') | null;
+              textColor?: ('black' | 'white' | 'grey' | 'red') | null;
               richText?: {
                 root: {
                   type: string;
@@ -742,6 +815,7 @@ export interface Solution {
           | {
               size?: ('oneThird' | 'half' | 'twoThirds' | 'full') | null;
               alignment?: ('left' | 'center' | 'right') | null;
+              textColor?: ('black' | 'white' | 'grey' | 'red') | null;
               richText?: {
                 root: {
                   type: string;
