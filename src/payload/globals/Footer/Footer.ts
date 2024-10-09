@@ -8,16 +8,26 @@ export const Footer: GlobalConfig = {
   access: {
     read: () => true,
   },
-  fields: [
+  fields: [ 
     {
-      name: 'navItems',
+      name: 'groups',
       type: 'array',
       fields: [
-        link({
-          appearances: false,
-        }),
-      ],
-      maxRows: 6,
+        {
+          name: "Title",
+          type: "text"
+        },
+        {
+          name: 'groupItem',
+          type: 'array',
+          fields: [
+            link({
+            appearances: false,
+          }),
+        ],
+        maxRows: 6,
+        }
+      ]
     },
   ],
   hooks: {

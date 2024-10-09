@@ -33,6 +33,7 @@ export interface Config {
     header: Header;
     footer: Footer;
     'mega-menu': MegaMenu;
+    'social-media': SocialMedia;
   };
   locale: null;
   user: User & {
@@ -1309,18 +1310,24 @@ export interface Header {
  */
 export interface Footer {
   id: number;
-  navItems?:
+  groups?:
     | {
-        link: {
-          type?: ('reference' | 'custom') | null;
-          newTab?: boolean | null;
-          reference?: {
-            relationTo: 'pages';
-            value: number | Page;
-          } | null;
-          url?: string | null;
-          label: string;
-        };
+        Title?: string | null;
+        groupItem?:
+          | {
+              link: {
+                type?: ('reference' | 'custom') | null;
+                newTab?: boolean | null;
+                reference?: {
+                  relationTo: 'pages';
+                  value: number | Page;
+                } | null;
+                url?: string | null;
+                label: string;
+              };
+              id?: string | null;
+            }[]
+          | null;
         id?: string | null;
       }[]
     | null;
@@ -1345,6 +1352,22 @@ export interface MegaMenu {
           url?: string | null;
           label: string;
         };
+        id?: string | null;
+      }[]
+    | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "social-media".
+ */
+export interface SocialMedia {
+  id: number;
+  media?:
+    | {
+        platform?: ('facebook' | 'instagram' | 'twitter' | 'linkedin') | null;
+        url?: string | null;
         id?: string | null;
       }[]
     | null;
