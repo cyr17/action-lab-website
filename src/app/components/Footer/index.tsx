@@ -20,7 +20,7 @@ export async function Footer() {
   return (
     <footer className="border-t border-border bg-black dark:bg-card text-white">
       
-      <div className=" w-screen h-screen md:h-fit py-[5rem] px-[3rem] lg:px-[10rem]">
+      <div className=" w-screen h-fit md:h-fit py-[3rem] sm:py-[5rem] px-[3rem] lg:px-[10rem]">
         <div className='flex flex-col gap-8'>
           <div className="grid sm:grid-cols-6 gap-8">
             <div className='sm:col-span-6 lg:col-span-3'>
@@ -68,9 +68,9 @@ export async function Footer() {
             </div>
           </div>
 
-          <div className='mt-10 grid sm:grid-cols-6'>
+          <div className='mt-4 sm:mt-10 grid sm:grid-cols-6'>
             <div className='sm:col-span-3 '>
-              <div className='flex flex-row sm:gap-2 mt-12 lg:mt-4'>
+              <div className='flex flex-row sm:gap-2 sm:mt-12 lg:mt-4'>
               <Link href="/terms" className="text-white basis-1/2 xl:basis-1/4">Terms of service</Link>
               <Link href="/privacy" className="text-white basis-1/2 xl:basis-1/4">Privacy policy</Link>
               </div>
@@ -79,6 +79,10 @@ export async function Footer() {
               We acknowledge and pay respects to the Elders and Traditional Owners of the land on which our Australian campuses stand. 
               <Link href="/indigenous" className="underline text-white">Information for Indigenous Australians</Link>
             </div>
+          </div>
+          
+          <div className='mt-4 col-span-6'>
+            <ThemeSelector />
           </div>
         </div>
       </div>
