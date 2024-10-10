@@ -4,22 +4,19 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
 import {Gutter,Button} from '@payloadcms/ui'
-import type { Header } from '../../../payload-types'
 import type { MegaMenu } from '../../../payload-types'
 
 import { Logo } from '../Logo/Logo'
-import { HeaderNav } from './Nav'
 import {  Hamburger } from './Hamburger'
 import { Modal,useModal ,ModalToggler } from '@faceless-ui/modal'
 import { CMSLink } from '../Link'
 interface HeaderClientProps {
-  header: Header
   megaMenu: MegaMenu
 }
 
 const menuSlug = 'menumodal';
 
-export const HeaderClient: React.FC<HeaderClientProps> = ({ header ,megaMenu }) => {
+export const HeaderClient: React.FC<HeaderClientProps> = ({ megaMenu }) => {
   /* Storing the value in a useState to avoid hydration errors */
   const [theme, setTheme] = useState(null)
   const { headerTheme, setHeaderTheme } = useHeaderTheme()
@@ -64,7 +61,6 @@ const CloseIcon = () => (
         <Hamburger />
       </button>
       </div>
-      <HeaderNav header={header} />
       <Modal slug={menuSlug} closeOnBlur className = "t-0 h-auto w-auto bg-black ">
         <div className="fixed inset-0 bg-black bg-opacity-90 text-white z-50 flex flex-col">
           {/* Close button */}
