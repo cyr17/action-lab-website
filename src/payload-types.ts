@@ -138,6 +138,7 @@ export interface Page {
         blockType: 'cta';
       }
     | {
+        Color?: ('black' | 'white' | 'grey' | 'red') | null;
         columns?:
           | {
               size?: ('oneThird' | 'half' | 'twoThirds' | 'full') | null;
@@ -583,6 +584,7 @@ export interface CaseStudy {
         blockType: 'cta';
       }
     | {
+        Color?: ('black' | 'white' | 'grey' | 'red') | null;
         columns?:
           | {
               size?: ('oneThird' | 'half' | 'twoThirds' | 'full') | null;
@@ -813,6 +815,7 @@ export interface Solution {
         blockType: 'cta';
       }
     | {
+        Color?: ('black' | 'white' | 'grey' | 'red') | null;
         columns?:
           | {
               size?: ('oneThird' | 'half' | 'twoThirds' | 'full') | null;

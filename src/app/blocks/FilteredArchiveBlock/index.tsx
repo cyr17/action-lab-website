@@ -71,7 +71,7 @@ export const FilteredArchiveBlock: React.FC<
   }
 
   return (
-    <div className="my-16" id={`block-${id}`}>
+    <div className="my-4" id={`block-${id}`}>
      
       {introContent && (
         <div className="container mb-16">
