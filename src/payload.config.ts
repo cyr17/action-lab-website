@@ -130,7 +130,7 @@ export default buildConfig({
   endpoints: [
    
   ],
-  globals: [Header, Footer,MegaMenu,SocialMedia],
+  globals: [Footer,MegaMenu,SocialMedia],
   plugins: [
     redirectsPlugin({
       collections: ['pages', 'posts','caseStudies','solutions','impactAreas'],

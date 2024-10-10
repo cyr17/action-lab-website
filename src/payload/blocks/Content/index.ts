@@ -4,10 +4,16 @@ import {
   FixedToolbarFeature,
   HeadingFeature,
   InlineToolbarFeature,
+  ChecklistFeature,
   lexicalEditor,
+  OrderedListFeature,
+  UnorderedListFeature,
+
+
 } from '@payloadcms/richtext-lexical'
 
 import { link } from '../../fields/link'
+import { check } from 'prettier'
 
 const columnFields: Field[] = [
   {
@@ -53,15 +59,43 @@ const columnFields: Field[] = [
     ],
   },
   {
+    name: 'textColor',
+    type: 'radio',
+    defaultValue: 'black',
+    options: [
+      {
+        label: 'Black',
+        value: 'black',
+      },
+      {
+        label: 'White',
+        value: 'white',
+      },
+      {
+        label: 'Grey',
+        value: 'grey',
+      },
+      {
+        label: 'Red',
+        value: 'red',
+      }
+
+    ],
+
+  },
+  {
     name: 'richText',
     type: 'richText',
     editor: lexicalEditor({
       features: ({ rootFeatures }) => {
         return [
           ...rootFeatures,
-          HeadingFeature({ enabledHeadingSizes: ['h2', 'h3', 'h4'] }),
+          HeadingFeature({ enabledHeadingSizes: ['h1','h2', 'h3', 'h4', 'h5' , 'h6'] }),
           FixedToolbarFeature(),
           InlineToolbarFeature(),
+          ChecklistFeature(), 
+          OrderedListFeature(),
+          UnorderedListFeature(),
         ]
       },
     }),
@@ -83,6 +117,30 @@ const columnFields: Field[] = [
 export const Content: Block = {
   slug: 'content',
   fields: [
+    {
+      name: 'Color',
+      type: 'radio',
+      defaultValue: 'black',
+      options: [
+        {
+          label: 'Black',
+          value: 'black',
+        },
+        {
+          label: 'White',
+          value: 'white',
+        },
+        {
+          label: 'Grey',
+          value: 'grey',
+        },
+        {
+          label: 'Red',
+          value: 'red',
+        }
+      ],
+
+    },
     {
       name: 'columns',
       type: 'array',

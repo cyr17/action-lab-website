@@ -45,13 +45,16 @@ export default async function Page({ params: { slug = 'home' } }) {
 
   const { hero, layout } = page
 
+  //TODO : PADDING px-8 and article without the div breaks the layout
   return (
     <article className="pt-16 pb-24">
       {/* Allows redirects for valid pages too */}
       <PayloadRedirects disableNotFound url={url} />
-
+      
       <Hero {...hero} />
+      <div className="px-8 sm:px-16">
       <Blocks blocks={layout} />
+      </div>
     </article>
   )
 }
