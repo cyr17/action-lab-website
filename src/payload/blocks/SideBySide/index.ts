@@ -56,17 +56,6 @@ const columnFields: Field[] = [
     }),
     label: false,
   },
-  {
-    name: 'enableLink',
-    type: 'checkbox',
-  },
-  link({
-    overrides: {
-      admin: {
-        condition: (_, { enableLink }) => Boolean(enableLink),
-      },
-    },
-  }),
 ]
 
 export const SideBySide: Block = {

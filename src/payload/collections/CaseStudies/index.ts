@@ -32,6 +32,7 @@ import { Content } from '../../blocks/Content'
 import { Archive } from '../../blocks/ArchiveBlock'
 import { FilteredArchive } from '../../blocks/FilteredArchiveBlock'
 import { FormBlock } from '../../blocks/Form'
+import { SideBySide } from 'src/payload/blocks/SideBySide'
 
 export const CaseStudies: CollectionConfig = {
   slug: 'caseStudies',
@@ -69,7 +70,7 @@ export const CaseStudies: CollectionConfig = {
             {
               name: 'layout',
               type: 'blocks',
-              blocks: [CallToAction, Content, MediaBlock, Archive,FilteredArchive, FormBlock],
+              blocks: [CallToAction, Content, SideBySide, MediaBlock, Archive,FilteredArchive, FormBlock],
               required: true,
             },
           ],
