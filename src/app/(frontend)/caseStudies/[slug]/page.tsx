@@ -12,7 +12,7 @@ import type { CaseStudy } from '../../../../payload-types'
 import { CaseStudyHero } from '../../../heros/CaseStudyHero'
 import { generateMeta } from '../../../utilities/generateMeta'
 import PageClient from './page.client'
-import { RelatedCaseStudies } from '@/blocks/RelatedCaseStudies'
+import { OtherStudies } from '@/blocks/OtherStudies'
 import { RelatedSolutions } from '@/blocks/RelatedSolutions'
 import { Blocks } from '@/components/Blocks'
 
@@ -54,15 +54,18 @@ export default async function CaseStudy({ params: { slug = 'casestudies' } }) {
           </div>
         </div>
 
-
-        <RelatedCaseStudies
-          className="mt-12"
-          docs={caseStudy.relatedCaseStudies.filter((caseStudy) => typeof caseStudy === 'object')}
-        />
         <RelatedSolutions
           className="mt-12"
           docs={caseStudy.relatedSolutions.filter((solution) => typeof solution === 'object')}
         />
+
+        <div className="mt-4 w-[90vw] border-b-2 border-black ml-auto mr-auto"/>
+
+        <OtherStudies
+          className="mt-12"
+          docs={caseStudy.relatedCaseStudies.filter((caseStudy) => typeof caseStudy === 'object')}
+        />
+        
       </div>
     </article>
   )

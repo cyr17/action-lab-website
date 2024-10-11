@@ -144,7 +144,7 @@ export const FilteredCollectionArchive: React.FC<Props> = (props) => {
           if (typeof result === 'object' && result !== null) {
             return (
               <div className="col-span-4 sm:col-span-4 md:col-span-4 lg:col-span-3" key={index}>
-                <PrimaryCard className="h-full" doc={result} relationTo={collection} color={cardColor(result.impactAreas[0].title)} />
+                <PrimaryCard className="h-full" doc={result} relationTo={collection} color={cardColor(result.impactAreas[0]?.title || 'See All')} />
               </div>
             );
           }
