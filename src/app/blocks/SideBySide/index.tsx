@@ -22,7 +22,7 @@ export const SideBySideBlock: React.FC<
         {leftSide &&
           leftSide.length > 0 &&
           leftSide.map((col, index) => {
-            const { enableLink, link, richText } = col;
+            const { richText } = col;
 
             const widthClass = 'w-1/2 sm:w-full';
             const marginClass = 'ml-0 mr-auto';
@@ -34,7 +34,6 @@ export const SideBySideBlock: React.FC<
               >
                 <div className={cn(widthClass, marginClass)}>
                   <RichText content={richText} enableGutter={false} />
-                  {enableLink && <CMSLink {...link} />}
                 </div>
               </div>
             );
@@ -46,7 +45,7 @@ export const SideBySideBlock: React.FC<
           {rightSide &&
           rightSide.length > 0 &&
           rightSide.map((col, index) => {
-            const { enableLink, link, richText } = col;
+            const { richText } = col;
 
             const widthClass = 'w-1/2 sm:w-full';
             const marginClass = 'ml-auto mr-0';
@@ -58,7 +57,6 @@ export const SideBySideBlock: React.FC<
               >
                 <div className={cn(widthClass, marginClass)}>
                   <RichText content={richText} enableGutter={false} />
-                  {enableLink && <CMSLink {...link} />}
                 </div>
               </div>
             );

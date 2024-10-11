@@ -11,7 +11,7 @@ import { Media } from '../Media'
 export const Card: React.FC<{
   alignItems?: 'center'
   className?: string
-  doc?: CaseStudy | Solution
+  doc?: CaseStudy | Solution | Post
   relationTo?: 'posts' | 'solutions' | 'caseStudies' | 'impactAreas'
   showImpactAreas?: boolean
   title?: string
