@@ -137,12 +137,12 @@ export interface Page {
         blockType: 'cta';
       }
     | {
-        Color?: ('black' | 'white' | 'grey' | 'red') | null;
+        blockColor?: ('black' | 'white' | 'grey' | 'red') | null;
         columns?:
           | {
               size?: ('oneThird' | 'half' | 'twoThirds' | 'full') | null;
               alignment?: ('left' | 'center' | 'right') | null;
-              textColor?: ('black' | 'white' | 'grey' | 'red') | null;
+              textColor?: ('black' | 'white' | 'grey' | 'orange') | null;
               richText?: {
                 root: {
                   type: string;
@@ -232,6 +232,7 @@ export interface Page {
         blockType: 'mediaBlock';
       }
     | {
+        blockColor?: ('white' | 'gray' | 'black' | 'orange') | null;
         introContent?: {
           root: {
             type: string;
@@ -559,12 +560,12 @@ export interface CaseStudy {
         blockType: 'cta';
       }
     | {
-        Color?: ('black' | 'white' | 'grey' | 'red') | null;
+        blockColor?: ('black' | 'white' | 'grey' | 'red') | null;
         columns?:
           | {
               size?: ('oneThird' | 'half' | 'twoThirds' | 'full') | null;
               alignment?: ('left' | 'center' | 'right') | null;
-              textColor?: ('black' | 'white' | 'grey' | 'red') | null;
+              textColor?: ('black' | 'white' | 'grey' | 'orange') | null;
               richText?: {
                 root: {
                   type: string;
@@ -654,6 +655,7 @@ export interface CaseStudy {
         blockType: 'mediaBlock';
       }
     | {
+        blockColor?: ('white' | 'gray' | 'black' | 'orange') | null;
         introContent?: {
           root: {
             type: string;
@@ -837,12 +839,12 @@ export interface Solution {
         blockType: 'cta';
       }
     | {
-        Color?: ('black' | 'white' | 'grey' | 'red') | null;
+        blockColor?: ('black' | 'white' | 'grey' | 'red') | null;
         columns?:
           | {
               size?: ('oneThird' | 'half' | 'twoThirds' | 'full') | null;
               alignment?: ('left' | 'center' | 'right') | null;
-              textColor?: ('black' | 'white' | 'grey' | 'red') | null;
+              textColor?: ('black' | 'white' | 'grey' | 'orange') | null;
               richText?: {
                 root: {
                   type: string;
@@ -932,6 +934,7 @@ export interface Solution {
         blockType: 'mediaBlock';
       }
     | {
+        blockColor?: ('white' | 'gray' | 'black' | 'orange') | null;
         introContent?: {
           root: {
             type: string;

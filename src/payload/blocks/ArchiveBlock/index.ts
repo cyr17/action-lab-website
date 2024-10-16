@@ -11,6 +11,29 @@ export const Archive: Block = {
   slug: 'archive',
   fields: [
     {
+      name: 'blockColor',
+      type: 'select',
+      defaultValue: 'white',
+      options: [
+        {
+          label: 'White',
+          value: 'white',
+        },
+        {
+          label: 'Gray',
+          value: 'gray',
+        },
+        {
+          label: 'Black',
+          value: 'black',
+        },
+        {
+          label: 'Orange',
+          value: 'orange',
+        }
+      ],
+    },
+    {
       name: 'introContent',
       type: 'richText',
       editor: lexicalEditor({

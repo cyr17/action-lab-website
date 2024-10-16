@@ -26,16 +26,16 @@ export async function Footer() {
             <div className='sm:col-span-6 lg:col-span-3'>
               <Link href="/">
                 <svg width="84" height="58" viewBox="0 0 84 58" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path fill-rule="evenodd" clip-rule="evenodd" d="M66.1708 35.6172V0.325897H44.1138V57.674L79.3733 57.6741L83.8163 35.6172H66.1708ZM79.7075 38.9809H62.807V3.68963H47.4776V54.3102L76.6196 54.3104L79.7075 38.9809Z" fill="url(#paint0_linear_110_159)"/>
+                  <path fillRule="evenodd" clipRule="evenodd" d="M66.1708 35.6172V0.325897H44.1138V57.674L79.3733 57.6741L83.8163 35.6172H66.1708ZM79.7075 38.9809H62.807V3.68963H47.4776V54.3102L76.6196 54.3104L79.7075 38.9809Z" fill="url(#paint0_linear_110_159)"/>
                   <path d="M37.5336 0.325897H66.1708L32.534 57.674H0L37.5336 0.325897Z" fill="url(#paint1_linear_110_159)"/>
                   <defs>
                   <linearGradient id="paint0_linear_110_159" x1="41.8358" y1="-14.3382" x2="78.8357" y2="97.1618" gradientUnits="userSpaceOnUse">
-                  <stop offset="0.203476" stop-color="#FAFAFA"/>
-                  <stop offset="0.975243" stop-color="#1D1D1D"/>
+                  <stop offset="0.203476" stopColor="#FAFAFA"/>
+                  <stop offset="0.975243" stopColor="#1D1D1D"/>
                   </linearGradient>
                   <linearGradient id="paint1_linear_110_159" x1="41.8358" y1="-14.3382" x2="78.8357" y2="97.1618" gradientUnits="userSpaceOnUse">
-                  <stop offset="0.203476" stop-color="#FAFAFA"/>
-                  <stop offset="0.975243" stop-color="#1D1D1D"/>
+                  <stop offset="0.203476" stopColor="#FAFAFA"/>
+                  <stop offset="0.975243" stopColor="#1D1D1D"/>
                   </linearGradient>
                   </defs>
                 </svg>

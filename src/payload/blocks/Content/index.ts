@@ -8,6 +8,7 @@ import {
   lexicalEditor,
   OrderedListFeature,
   UnorderedListFeature,
+  
 
 
 } from '@payloadcms/richtext-lexical'
@@ -76,8 +77,8 @@ const columnFields: Field[] = [
         value: 'grey',
       },
       {
-        label: 'Red',
-        value: 'red',
+        label: 'Orange',
+        value: 'orange',
       }
 
     ],
@@ -118,9 +119,9 @@ export const Content: Block = {
   slug: 'content',
   fields: [
     {
-      name: 'Color',
+      name: 'blockColor',
       type: 'radio',
-      defaultValue: 'black',
+      defaultValue: 'white',
       options: [
         {
           label: 'Black',
