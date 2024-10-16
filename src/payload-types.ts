@@ -801,6 +801,7 @@ export interface CaseStudy {
 export interface Solution {
   id: number;
   title: string;
+  subtitle: string;
   layout: (
     | {
         richText?: {

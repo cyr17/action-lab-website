@@ -63,6 +63,11 @@ export const Solutions: CollectionConfig = {
       required: true,
     },
     {
+      name: 'subtitle',
+      type: 'text',
+      required: true,
+    },
+    {
       type: 'tabs',
       tabs: [
         {

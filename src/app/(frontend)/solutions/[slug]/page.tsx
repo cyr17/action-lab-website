@@ -47,11 +47,12 @@ export default async function Solution({ params: { slug = 'solutions' } }) {
       {/* Allows redirects for valid pages too */}
       <PayloadRedirects disableNotFound url={url} />
 
-      <SolutionHero solution={solution} />
 
       <div className="flex flex-col gap-4 pt-8">
-        <div className="container lg:grid lg:grid-cols-[1fr_48rem_1fr] grid-rows-[1fr]">
+        <div className="container lg:grid lg:grid-cols-[1fr_60rem_1fr] grid-rows-[1fr]">
           <div className="lg:col-start-2 lg:col-span-1">
+            
+            <SolutionHero solution={solution} />
             <Blocks blocks={solution.layout} />
           </div>
         </div>
