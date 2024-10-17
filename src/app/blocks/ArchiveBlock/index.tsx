@@ -21,8 +21,6 @@ export const ArchiveBlock: React.FC<
   const { id,impactAreas, introContent, limit = 3, populateBy, selectedDocs, relationTo } = props
 
   let items: any[] = []
-  console.log("PROPS RECEOVED",props.blockColor)
-
   if (populateBy === 'collection') {
     const payload = await getPayloadHMR({ config: configPromise })
 

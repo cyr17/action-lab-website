@@ -36,6 +36,7 @@ import { ImpactAreas } from './payload/collections/ImpactAreas'
 import { People } from './payload/collections/People'
 import { MegaMenu } from './payload/globals/MegaMenu/MegaMenu'
 import {SocialMedia} from './payload/globals/SocialMedia/SocialMedia'
+import { FooterMedia } from './payload/globals/FooterMedia/FooterMedia'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -130,7 +131,7 @@ export default buildConfig({
   endpoints: [
    
   ],
-  globals: [Footer,MegaMenu,SocialMedia],
+  globals: [FooterMedia, Footer,MegaMenu,SocialMedia],
   plugins: [
     redirectsPlugin({
       collections: ['pages', 'posts','caseStudies','solutions','impactAreas'],

@@ -11,6 +11,7 @@ import type { Page as PageType } from '../../../payload-types'
 import { Blocks } from '../../components/Blocks'
 import { Hero } from '../../components/Hero'
 import { generateMeta } from '../../utilities/generateMeta'
+import { FooterMedia } from '@/components/FooterMedia'
 
 export async function generateStaticParams() {
   const payload = await getPayloadHMR({ config: configPromise })
@@ -47,6 +48,7 @@ export default async function Page({ params: { slug = 'home' } }) {
 
   //TODO : PADDING px-8 and article without the div breaks the layout
   return (
+    <div className=''>
     <article className="pt-16 pb-24">
       {/* Allows redirects for valid pages too */}
       <PayloadRedirects disableNotFound url={url} />
@@ -58,6 +60,10 @@ export default async function Page({ params: { slug = 'home' } }) {
           </div>
         </div>
     </article>
+    { page.slug === 'home' &&
+      <FooterMedia />}
+    </div>
+
   )
 }
 

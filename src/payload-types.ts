@@ -30,6 +30,7 @@ export interface Config {
     defaultIDType: number;
   };
   globals: {
+    'footer-media': FooterMedia;
     footer: Footer;
     'mega-menu': MegaMenu;
     'social-media': SocialMedia;
@@ -1355,6 +1356,16 @@ export interface PayloadMigration {
   batch?: number | null;
   updatedAt: string;
   createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "footer-media".
+ */
+export interface FooterMedia {
+  id: number;
+  media: number | Media;
+  updatedAt?: string | null;
+  createdAt?: string | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

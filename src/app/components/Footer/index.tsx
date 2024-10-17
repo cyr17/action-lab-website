@@ -80,10 +80,6 @@ export async function Footer() {
               <Link href="/indigenous" className="underline text-white">Information for Indigenous Australians</Link>
             </div>
           </div>
-          
-          <div className='mt-4 col-span-6'>
-            <ThemeSelector />
-          </div>
         </div>
       </div>
     </footer>
