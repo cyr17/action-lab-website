@@ -56,6 +56,7 @@ export const ContentBlock: React.FC<
               >
                 <div className={cn(widthClass, marginClass,textColorClass)}>
                   <RichText content={richText} enableGutter={false} />
+                  <br />
                   {enableLink && <CMSLink {...link} />}
                 </div>
               </div>

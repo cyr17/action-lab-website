@@ -61,7 +61,7 @@ const columnFields: Field[] = [
   },
   {
     name: 'textColor',
-    type: 'radio',
+    type: 'select',
     defaultValue: 'black',
     options: [
       {
@@ -77,10 +77,29 @@ const columnFields: Field[] = [
         value: 'grey',
       },
       {
-        label: 'Orange',
-        value: 'orange',
-      }
-
+        label: 'Red',
+        value: 'red',
+      },
+      {
+        label: 'Green',
+        value: 'green',
+      },
+      {
+        label: 'Yellow',
+        value: 'yellow',
+      },
+      {
+        label: 'Blue',
+        value: 'blue',
+      },
+      {
+        label: 'Pink',
+        value: 'pink',
+      },
+      {
+        label: 'Purple',
+        value: 'purple',
+      },
     ],
 
   },

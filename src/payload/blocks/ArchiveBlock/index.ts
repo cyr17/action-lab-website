@@ -30,7 +30,31 @@ export const Archive: Block = {
         {
           label: 'Orange',
           value: 'orange',
-        }
+        },
+        {
+          label: 'Red',
+          value: 'red',
+        },
+        {
+          label: 'Green',
+          value: 'green',
+        },
+        {
+          label: 'Yellow',
+          value: 'yellow',
+        },
+        {
+          label: 'Blue',
+          value: 'blue',
+        },
+        {
+          label: 'Pink',
+          value: 'pink',
+        },
+        {
+          label: 'Purple',
+          value: 'purple',
+        },
       ],
     },
     {
