@@ -31,24 +31,22 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       </head>
       <body>
         
-      <main>
-      <GridProvider>
-        <ModalProvider>
-          <Providers>
-            <AdminBar />
-            <LivePreviewListener />
-
-            <Header />
+        <main>
+          <GridProvider>
+            <ModalProvider>
+              <Providers>
+                <AdminBar />
+                <LivePreviewListener />
+                <Header />
+                
+                {children}
+                
+                <Footer />
+              </Providers>
+            </ModalProvider>
             
-              {children}
-            
-            <Footer />
-          </Providers>
-        </ModalProvider>
-
-        <ModalContainer />
-        
-      </GridProvider>
+            <ModalContainer />
+          </GridProvider>
         </main>
         
       </body>
