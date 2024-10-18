@@ -4,7 +4,6 @@ import React from 'react'
 
 import type { Footer, SocialMedia } from '../../../payload-types'
 
-import { ThemeSelector } from '../../providers/Theme/ThemeSelector'
 import Socials from './Socials'
 import { FooterLink } from './FooterLink'
 
@@ -20,7 +19,7 @@ export async function Footer() {
   return (
     <footer className="border-t border-border bg-black dark:bg-card text-white">
       
-      <div className=" w-screen h-fit md:h-fit py-[3rem] sm:py-[5rem] px-[3rem] lg:px-[10rem]">
+      <div className=" w-screen h-fit py-[3rem] sm:py-[5rem] px-[3rem] lg:px-[10rem]">
         <div className='flex flex-col gap-8'>
           <div className="grid sm:grid-cols-6 gap-8">
             <div className='sm:col-span-6 lg:col-span-3'>

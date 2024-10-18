@@ -1,11 +1,8 @@
 import { getCachedGlobal } from '@/utilities/getGlobals'
-import Link from 'next/link'
 import React from 'react'
 
 import type { FooterMedia } from '../../../payload-types'
 
-
-import { Media } from '../../components/Media'
 
 export async function FooterMedia() {
     const footerMedia: FooterMedia = await getCachedGlobal('footer-media', 1)()
