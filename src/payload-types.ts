@@ -143,7 +143,7 @@ export interface Page {
           | {
               size?: ('oneThird' | 'half' | 'twoThirds' | 'full') | null;
               alignment?: ('left' | 'center' | 'right') | null;
-              textColor?: ('black' | 'white' | 'grey' | 'orange') | null;
+              textColor?: ('black' | 'white' | 'grey' | 'red' | 'green' | 'yellow' | 'blue' | 'pink' | 'purple') | null;
               richText?: {
                 root: {
                   type: string;
@@ -233,7 +233,9 @@ export interface Page {
         blockType: 'mediaBlock';
       }
     | {
-        blockColor?: ('white' | 'gray' | 'black' | 'orange') | null;
+        blockColor?:
+          | ('white' | 'gray' | 'black' | 'orange' | 'red' | 'green' | 'yellow' | 'blue' | 'pink' | 'purple')
+          | null;
         introContent?: {
           root: {
             type: string;
@@ -566,7 +568,7 @@ export interface CaseStudy {
           | {
               size?: ('oneThird' | 'half' | 'twoThirds' | 'full') | null;
               alignment?: ('left' | 'center' | 'right') | null;
-              textColor?: ('black' | 'white' | 'grey' | 'orange') | null;
+              textColor?: ('black' | 'white' | 'grey' | 'red' | 'green' | 'yellow' | 'blue' | 'pink' | 'purple') | null;
               richText?: {
                 root: {
                   type: string;
@@ -656,7 +658,9 @@ export interface CaseStudy {
         blockType: 'mediaBlock';
       }
     | {
-        blockColor?: ('white' | 'gray' | 'black' | 'orange') | null;
+        blockColor?:
+          | ('white' | 'gray' | 'black' | 'orange' | 'red' | 'green' | 'yellow' | 'blue' | 'pink' | 'purple')
+          | null;
         introContent?: {
           root: {
             type: string;
@@ -846,7 +850,7 @@ export interface Solution {
           | {
               size?: ('oneThird' | 'half' | 'twoThirds' | 'full') | null;
               alignment?: ('left' | 'center' | 'right') | null;
-              textColor?: ('black' | 'white' | 'grey' | 'orange') | null;
+              textColor?: ('black' | 'white' | 'grey' | 'red' | 'green' | 'yellow' | 'blue' | 'pink' | 'purple') | null;
               richText?: {
                 root: {
                   type: string;
@@ -936,7 +940,9 @@ export interface Solution {
         blockType: 'mediaBlock';
       }
     | {
-        blockColor?: ('white' | 'gray' | 'black' | 'orange') | null;
+        blockColor?:
+          | ('white' | 'gray' | 'black' | 'orange' | 'red' | 'green' | 'yellow' | 'blue' | 'pink' | 'purple')
+          | null;
         introContent?: {
           root: {
             type: string;

@@ -19,8 +19,8 @@ export const CollectionArchive: React.FC<Props> = (props) => {
           {items?.map((result, index) => {
             if (typeof result === 'object' && result !== null) {
               return (
-                <div className="col-span-4 sm:col-span-4 lg:col-span-3" key={index}>
-                  <Card className="h-full" doc={result} relationTo={collection} showImpactAreas />
+                <div className="col-span-4 sm:col-span-4" key={index}>
+                  <Card doc={result} relationTo={collection} showImpactAreas />
                 </div>
               )
             }
