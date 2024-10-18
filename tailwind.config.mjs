@@ -110,10 +110,23 @@ export default {
             '--tw-prose-body': 'var(--text)',
             '--tw-prose-headings': 'var(--text)',
             h1: {
-              fontSize: '4rem',
+              fontSize: '1.5rem', // Default font size for mobile
               fontWeight: 'normal',
               marginBottom: '0.25em',
+              '@screen sm': {
+                fontSize: '2rem', // Font size for small screens and up
+              },
+              '@screen md': {
+                fontSize: '2.5rem', // Font size for medium screens and up
+              },
+              '@screen lg': {
+                fontSize: '3rem', // Font size for large screens and up
+              },
+              '@screen xl': {
+                fontSize: '3.5rem', // Font size for extra-large screens and up
+              },
             },
+            
           },
         },
       }),

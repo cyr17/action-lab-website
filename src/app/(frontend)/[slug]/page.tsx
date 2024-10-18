@@ -54,7 +54,7 @@ export default async function Page({ params: { slug = 'home' } }) {
       <PayloadRedirects disableNotFound url={url} />
       
       <Hero {...hero} />
-      <div className="container lg:grid lg:grid-cols-[1fr_60rem_1fr] grid-rows-[1fr]">
+      <div className="container lg:grid lg:grid-cols-[1fr_70rem_1fr] grid-rows-[1fr]">
           <div className="lg:col-start-2 lg:col-span-1">
             <Blocks blocks={layout} />
           </div>
