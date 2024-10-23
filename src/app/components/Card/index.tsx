@@ -14,6 +14,7 @@ export const Card: React.FC<{
   relationTo?: 'posts' | 'solutions' | 'caseStudies' | 'impactAreas'
   showImpactAreas?: boolean
   title?: string
+  widthClass?: string
 }> = (props) => {
   const { card, link } = useClickableCard({})
   const { className, doc, relationTo, showImpactAreas, title: titleFromProps } = props
@@ -23,16 +24,18 @@ export const Card: React.FC<{
   const { image: metaImage } = meta || {}
   const titleToUse = titleFromProps || title
   const href = `/${relationTo}/${slug}`
-
+  const widthClass = props.widthClass || "w-full"
   return (
     <article
       className={cn(
-        'group overflow-hidden bg-card hover:cursor-pointer relative rounded-lg shadow-lg',
+        'group overflow-hidden bg-card hover:cursor-pointer relative shadow-lg',
         className,
       )}
       ref={card.ref}
     >
-      <div className="relative w-full h-[300px] sm:h-[400px] md:h-[450px] lg:h-[542px] overflow-hidden">
+      <div className={cn(
+        widthClass,
+        "relative h-[300px] sm:h-[400px] md:h-[450px] lg:h-[542px] overflow-hidden")}>
         {metaImage && typeof metaImage !== 'string' && (
           <div className="inset-0 transition-transform duration-300 group-hover:scale-110">
             <Media
@@ -46,17 +49,31 @@ export const Card: React.FC<{
         )}
       </div>
 
-      <div className="absolute bottom-4 left-4 right-4 z-10 text-white">
-        {titleToUse && (
-          <div className="prose">
-            <h3 className="text-lg font-bold">
-              <Link className="not-prose" href={href} ref={link.ref}>
-                {titleToUse}
-              </Link>
-            </h3>
-          </div>
-        )}
-        {subtitle && <div className="mt-2 text-sm text-white opacity-90">{subtitle}</div>}
+      <div className='absolute bottom-4 left-4 right-4 z-10 flex justify-between items-end text-white'>
+        <div className="">
+          {titleToUse && (
+            <div className="prose">
+              <h3 className="text-lg font-bold">
+                <Link className="not-prose" href={href} ref={link.ref}>
+                  {titleToUse}
+                </Link>
+              </h3>
+            </div>
+          )}
+          {subtitle && <div className="mt-2 text-sm text-white opacity-90">{subtitle}</div>}
+        </div>
+        <div className=''>
+          <svg
+            className="ml-2 transition-transform duration-300 group-hover:rotate-45"
+            width="19"
+            height="19"
+            viewBox="0 0 19 19"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M1 1.125H18M18 1.125V17.625M18 1.125L1.5 17.875" stroke="#FCFCFC" strokeWidth="2" />
+          </svg>
+        </div>
       </div>
     </article>
   )

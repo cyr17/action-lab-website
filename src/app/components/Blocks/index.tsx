@@ -11,6 +11,7 @@ import { FormBlock } from '../../blocks/Form'
 import { MediaBlock } from '../../blocks/MediaBlock'
 import { toKebabCase } from '../../utilities/toKebabCase'
 import { SideBySideBlock } from '../../blocks/SideBySide'
+import { SliderBlock } from '../../blocks/SliderBlock'
 
 const blockComponents = {
   archive: ArchiveBlock,
@@ -20,6 +21,7 @@ const blockComponents = {
   formBlock: FormBlock,
   mediaBlock: MediaBlock,
   sideBySide: SideBySideBlock,
+  slider: SliderBlock,
 }
 
 export const Blocks: React.FC<{

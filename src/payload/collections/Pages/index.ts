@@ -21,6 +21,7 @@ import {
   OverviewField,
   PreviewField,
 } from '@payloadcms/plugin-seo/fields'
+import { Slider } from 'src/payload/blocks/SliderBlock'
 export const Pages: CollectionConfig = {
   slug: 'pages',
   access: {
@@ -61,7 +62,7 @@ export const Pages: CollectionConfig = {
             {
               name: 'layout',
               type: 'blocks',
-              blocks: [CallToAction, Content, SideBySide, MediaBlock, Archive,FilteredArchive, FormBlock],
+              blocks: [CallToAction, Content, SideBySide, MediaBlock, Archive, Slider, FilteredArchive, FormBlock],
               required: true,
             },
           ],

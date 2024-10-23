@@ -7,7 +7,22 @@ export default {
     './src/**/*.{ts,tsx}',
   ],
   darkMode: ['selector', '[data-theme="dark"]'],
-  plugins: [require('tailwindcss-animate'), require('@tailwindcss/typography')],
+  plugins: [require('tailwindcss-animate'), require('@tailwindcss/typography'),
+
+    function({addUtilities})
+    {
+      const newUtilities = {
+        ".no-scrollbar::-webkit-scrollbar": {
+          display: "none",
+        },
+        ".no-scrollbar": {
+          "-ms-overflow-style": "none",
+          "scrollbarWidth": "none",
+        },
+      };
+      addUtilities(newUtilities);
+    }
+  ],
   prefix: '',
   safelist: [
     'lg:col-span-4',
@@ -110,6 +125,11 @@ export default {
             '--tw-prose-body': 'var(--text)',
             '--tw-prose-headings': 'var(--text)',
             h1: {
+              fontSize: '4rem',
+              fontWeight: 'normal',
+              marginBottom: '0.25em',
+            },
+            h2: {
               fontSize: '1.5rem', // Default font size for mobile
               fontWeight: 'normal',
               marginBottom: '0.25em',
