@@ -17,7 +17,7 @@ export async function Footer() {
   const navItems = footer?.groups || []
 
   return (
-    <footer className="border-t border-border bg-black dark:bg-card text-white">
+    <footer className="border-t border-border bg-black text-white">
       
       <div className=" w-screen h-fit py-[3rem] sm:py-[5rem] px-[3rem] lg:px-[10rem]">
         <div className='flex flex-col gap-8'>

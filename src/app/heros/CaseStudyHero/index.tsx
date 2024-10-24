@@ -13,7 +13,7 @@ export const CaseStudyHero: React.FC<{
   return (
     <div className="relative -mt-[10.4rem] flex items-end">
     <div className="container z-10 relative text-white pb-8 mx-auto lg:max-w-4xl">
-      <div className="bg-black dark:bg-card text-white border-t border-border p-8 rounded-lg shadow-lg">
+      <div className="bg-black text-white border-t border-border p-8 rounded-lg shadow-lg">
           <div className="uppercase text-sm mb-6">
             {impactAreas?.map((category, index) => {
               if (typeof category === 'object' && category !== null) {

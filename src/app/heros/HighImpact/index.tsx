@@ -7,16 +7,17 @@ import type { Page } from '../../../payload-types'
 import { CMSLink } from '../../components/Link'
 import { Media } from '../../components/Media'
 import RichText from '../../components/RichText'
+import { Button } from '@payloadcms/ui'
 
 export const HighImpactHero: React.FC<Page['hero']> = ({ links, media, richText }) => {
   const { setHeaderTheme } = useHeaderTheme()
 
   useEffect(() => {
-    setHeaderTheme('dark')
+    setHeaderTheme('light')
   })
 
   return (
-    <div className="relative -mt-[4rem] min-h-[70vh] sm:min-h-[35rem] text-white z-10 bg-black" data-theme="dark">
+    <div className="relative -mt-[4rem] min-h-[70vh] sm:min-h-[35rem] text-white z-10 bg-black" data-theme="light">
     {/* Free-floating left-side content */}
     <div className="container mr-0 mb-32 z-20 relative flex-grow-0 flex-shrink-0 basis-[30%] py-8">
       <div className="max-w-[34rem]">
@@ -26,12 +27,12 @@ export const HighImpactHero: React.FC<Page['hero']> = ({ links, media, richText 
           <ul className="flex gap-4">
             {links.map(({ link }, i) => (
               <li key={i}>
-                <CMSLink {...link} />
+                <CMSLink {...link} className='bg-black hover:text-white hover:bg-black'/>
               </li>
             ))}
           </ul>
         )}
-      </div>
+        </div>
     </div>
   
     {/* Hero Image starts from 30% of the viewport width */}
