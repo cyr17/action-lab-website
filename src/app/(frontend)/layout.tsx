@@ -21,8 +21,16 @@ import { GridProvider } from '@faceless-ui/css-grid'
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html className={cn(GeistSans.variable, GeistMono.variable)} lang="en" suppressHydrationWarning>
-     
-        
+     <WindowInfoProvider
+      breakpoints={{
+        xs: `(max-width: 560px)`,
+        sm: `(min-width: 640px)`,
+        md: `(min-width: 768px)`,
+        lg: `(min-width: 1024px)`,
+        xl: `(min-width: 1280px)`,
+      }}>
+      <ModalProvider>
+        <GridProvider>
 
       <head>
         <InitTheme />
@@ -30,26 +38,21 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
       </head>
       <body>
-        
-        <main>
-          <GridProvider>
-            <ModalProvider>
-              <Providers>
-                <AdminBar />
-                <LivePreviewListener />
-                <Header />
-                
-                {children}
-                
-                <Footer />
-              </Providers>
-            </ModalProvider>
-            
-            <ModalContainer />
-          </GridProvider>
-        </main>
-        
+        <Providers>
+          <AdminBar />
+          <LivePreviewListener />
+
+          <Header />
+          <main>
+            {children}
+          </main>
+          <Footer />
+        </Providers>
       </body>
+        <ModalContainer />
+        </GridProvider>
+      </ModalProvider>
+      </WindowInfoProvider>
     </html>
   )
 }
