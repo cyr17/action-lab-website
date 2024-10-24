@@ -128,7 +128,7 @@ export interface Page {
                 } | null;
                 url?: string | null;
                 label: string;
-                appearance?: ('default' | 'outline') | null;
+                appearance?: ('default' | 'secondary') | null;
               };
               id?: string | null;
             }[]
@@ -603,7 +603,7 @@ export interface CaseStudy {
                 } | null;
                 url?: string | null;
                 label: string;
-                appearance?: ('default' | 'outline') | null;
+                appearance?: ('default' | 'secondary') | null;
               };
               id?: string | null;
             }[]
@@ -885,7 +885,7 @@ export interface Solution {
                 } | null;
                 url?: string | null;
                 label: string;
-                appearance?: ('default' | 'outline') | null;
+                appearance?: ('default' | 'secondary') | null;
               };
               id?: string | null;
             }[]

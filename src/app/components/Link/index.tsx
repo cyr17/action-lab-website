@@ -70,7 +70,7 @@ export const CMSLink: React.FC<CMSLinkType> = (props) => {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <path d="M1 1.125H18M18 1.125V17.625M18 1.125L1.5 17.875" stroke="#FCFCFC" strokeWidth="2" />
+      <path d="M1 1.125H18M18 1.125V17.625M18 1.125L1.5 17.875" stroke={appearance === 'secondary' ?  "#0F0F0F" : "#FCFCFC"} strokeWidth="2" />
     </svg>
     </Link>
     </Button>

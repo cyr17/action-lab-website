@@ -27,7 +27,7 @@ export const HighImpactHero: React.FC<Page['hero']> = ({ links, media, richText 
           <ul className="flex gap-4">
             {links.map(({ link }, i) => (
               <li key={i}>
-                <CMSLink {...link} className='bg-black hover:text-white hover:bg-black'/>
+                <CMSLink {...link} className=''/>
               </li>
             ))}
           </ul>
