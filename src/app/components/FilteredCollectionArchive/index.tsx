@@ -93,12 +93,12 @@ export const FilteredCollectionArchive: React.FC<Props> = (props) => {
     }
   };
   
-  const cardColor = (impactArea:String) => {
-    // find index of impactArea in filter
-    const index = filter.findIndex((item) => item.title === impactArea);
-    // return color from colors array
-    return colors[index];
-  }
+  // const cardColor = (impactArea:String) => {
+  //   // find index of impactArea in filter
+  //   const index = filter.findIndex((item) => item.title === impactArea);
+  //   // return color from colors array
+  //   return colors[index];
+  // }
 
   return (
     <div className={cn('container')}>
@@ -118,12 +118,14 @@ export const FilteredCollectionArchive: React.FC<Props> = (props) => {
               return (
                 <div key={index}>
                   <a className={cn(
-                    'cursor-pointer text-lg font-bold ',
+                    'cursor-pointer text-lg font-bold p-2 ',
                     
 
-                    { [selectedCategoryStyles[index]]: selectedCategory === result.title },
-                    { [defaultCategoryStyles[index]]: selectedCategory !== result.title },
-                    { [hoverCategoryColors[index]]: selectedCategory !== result.title },
+                    { 'border-2 border-black bg-black text-white transition-colors duration-500': selectedCategory === result.title },
+                    { 
+                      'border-2 border-black bg-white text-black transition-colors duration-500': selectedCategory !== result.title },
+                    { 
+                      'hover:border-2 border-black hover:bg-gray-400 text-black transition-colors duration-500': selectedCategory !== result.title },
                   )}
                   onClick={() => handleCategorySelect(result.title)}
                   >
@@ -144,7 +146,7 @@ export const FilteredCollectionArchive: React.FC<Props> = (props) => {
           if (typeof result === 'object' && result !== null) {
             return (
               <div className="col-span-4 sm:col-span-4 md:col-span-4 lg:col-span-3" key={index}>
-                <PrimaryCard className="h-full" doc={result} relationTo={collection} color={cardColor(result.impactAreas[0]?.title || 'See All')} />
+                <PrimaryCard className="h-full" doc={result} relationTo={collection} color={'bg-black'} />
               </div>
             );
           }

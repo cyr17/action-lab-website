@@ -52,7 +52,7 @@ export const Card: React.FC<{
       <div className='absolute bottom-4 left-4 right-4 z-10 flex justify-between items-end text-white'>
         <div className="">
           {titleToUse && (
-            <div className="prose">
+            <div className="prose group-hover:underline">
               <h3 className="text-lg font-bold">
                 <Link className="not-prose" href={href} ref={link.ref}>
                   {titleToUse}
