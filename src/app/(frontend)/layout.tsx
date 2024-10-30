@@ -18,6 +18,8 @@ import { ModalProvider,ModalContainer } from '@faceless-ui/modal'
 import { WindowInfoProvider } from '@faceless-ui/window-info'
 import { GridProvider } from '@faceless-ui/css-grid'
 
+import { PathTracker } from '../components/PathTracker'
+
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html className={cn(GeistSans.variable, GeistMono.variable)} lang="en" suppressHydrationWarning>
@@ -44,6 +46,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 
           <Header />
           <main>
+            <PathTracker />
             {children}
           </main>
           <Footer />
