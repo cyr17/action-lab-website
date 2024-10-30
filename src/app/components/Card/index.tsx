@@ -14,7 +14,7 @@ export const Card: React.FC<{
   relationTo?: 'posts' | 'solutions' | 'caseStudies' | 'impactAreas'
   showImpactAreas?: boolean
   title?: string
-  widthClass?: string
+  aspectClass?: string
 }> = (props) => {
   const { card, link } = useClickableCard({})
   const { className, doc, relationTo, showImpactAreas, title: titleFromProps } = props
@@ -24,7 +24,7 @@ export const Card: React.FC<{
   const { image: metaImage } = meta || {}
   const titleToUse = titleFromProps || title
   const href = `/${relationTo}/${slug}`
-  const widthClass = props.widthClass || "w-full"
+  const aspectClass = props.aspectClass || "h-[300px] sm:h-[400px] md:h-[450px] lg:h-[542px] w-full"
   return (
     <article
       className={cn(
@@ -34,8 +34,8 @@ export const Card: React.FC<{
       ref={card.ref}
     >
       <div className={cn(
-        widthClass,
-        "relative h-[300px] sm:h-[400px] md:h-[450px] lg:h-[542px] overflow-hidden")}>
+        aspectClass,
+        "relative overflow-hidden")}>
         {metaImage && typeof metaImage !== 'string' && (
           <div className="inset-0 transition-transform duration-300 group-hover:scale-110">
             <Media

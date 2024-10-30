@@ -41,7 +41,7 @@ export const SliderArchive: React.FC<Props> = (props) => {
               return (
                 <div className="snap-start min-w-[240px] flex-shrink-0" key={index}>
                   {/* Each card now has a fixed width to allow horizontal scrolling */}
-                  <Card doc={result} relationTo={collection} showImpactAreas widthClass='w-[240px] sm:w-[300px]' />
+                  <Card doc={result} relationTo={collection} showImpactAreas aspectClass='h-[300px] sm:h-[400px] md:h-[450px] lg:h-[542px] w-[240px] sm:w-[300px]' />
                 </div>
               )
             }

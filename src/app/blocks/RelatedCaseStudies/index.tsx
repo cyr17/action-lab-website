@@ -25,7 +25,7 @@ export const RelatedCaseStudies: React.FC<RelatedCaseStudiesProps> = (props) => 
         {docs?.map((doc, index) => {
           if (typeof doc === 'string') return null
 
-          return <PrimaryCard key={index} doc={doc} relationTo="caseStudies" showImpactAreas color='bg-green-500'/>
+          return <PrimaryCard key={index} doc={doc} relationTo="caseStudies" showImpactAreas color='bg-black'/>
         })}
         </div>
       </div>

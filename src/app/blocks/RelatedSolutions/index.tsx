@@ -5,41 +5,37 @@ import RichText from 'src/app/components/RichText'
 import type { CaseStudy, Solution } from '../../../payload-types'
 
 import { Card } from '../../components/Card'
-import { Button } from '@payloadcms/ui'
+import { Button } from '../../components/ui/button'
 import { PrimaryCard } from '@/components/PrimaryCard'
 
 
 
 const SolutionCard:React.FC<{
-  docs?: CaseStudy []| Solution[]
+  docs?: Solution[]
 }> = (props) => {
   const docs =props.docs
   return(
-    <div className='grid sm:grid-cols-12 bg-gray-300 rounded-lg h-fit w-full ' >
-      
-      
-
-      <div className='p-4 h-fit col-span-1 sm:col-span-3 sm:order-2'>
-        {docs?.map((doc, index) => {
+    
+    <div >
+      {docs?.map((doc, index) => {
           if (typeof doc === 'string') return null
+          return <div className='grid md:grid-cols-12 bg-gray-300 rounded-lg h-fit w-full my-4'>
+                  <div className='p-4 h-full col-span-1 md:col-span-6 lg:col-span-4 md:order-2'>
+                      <Card key={index} doc={doc} relationTo="solutions" aspectClass='max-h-[300px] w-full' />
+                  </div>
 
-          return <Card key={index} doc={doc} relationTo="solutions" showImpactAreas />
-        })}    
-      </div>
-
-      <div className='sm:col-span-9 sm:order-1'>
-        <div className='p-4'>
-        <div className='font-bold text-4xl'>
-          Lorem ipsum dolor sit amet consectetur. Integer vitae tincidunt massa senectus ut. S
-        </div>
-        <div className='pt-4 text-2xl'>
-          Lorem ipsum dolor sit amet consectetur. Integer vitae tincidunt massa senectus ut. Sagittis quis cras commodo nec pharetra viverra aliquam sed. Sit ullamcorper dictum molestie at vitae sociis mattis sed.
-        </div>
-        <Button className='p-4 mt-4 rounded-lg bg-black text-white'>
-          Button
-        </Button>
-        </div>
-      </div>
+                  <div className='md:col-span-6 lg:col-span-8 md:order-1'>
+                    <div className='p-4'>
+                    <div className='font-bold text-4xl'>
+                      {doc.title}
+                    </div>
+                    <div className='pt-4 text-2xl'>
+                      {doc.subtitle}
+                    </div>
+                    </div>
+                  </div>
+                </div>
+              })}    
 
     </div>
   )
