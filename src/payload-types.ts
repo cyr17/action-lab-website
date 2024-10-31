@@ -836,8 +836,9 @@ export interface CaseStudy {
     image?: number | Media | null;
     description?: string | null;
   };
+  readingTime?: number | null;
   publishedAt?: string | null;
-  authors?: (number | User)[] | null;
+  authors?: (number | Person)[] | null;
   populatedAuthors?:
     | {
         id?: string | null;
@@ -1136,8 +1137,11 @@ export interface Solution {
  */
 export interface Person {
   id: number;
-  title: string;
-  content: {
+  name?: string | null;
+  title?: string | null;
+  role?: ('researcher' | 'assistant' | 'engineer' | 'associate' | 'alumni') | null;
+  email?: string | null;
+  bio?: {
     root: {
       type: string;
       children: {
@@ -1151,17 +1155,10 @@ export interface Person {
       version: number;
     };
     [k: string]: unknown;
-  };
-  categories?: (number | Category)[] | null;
-  meta?: {
-    title?: string | null;
-    image?: number | Media | null;
-    description?: string | null;
-  };
-  slug?: string | null;
+  } | null;
+  photo: number | Media;
   updatedAt: string;
   createdAt: string;
-  _status?: ('draft' | 'published') | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

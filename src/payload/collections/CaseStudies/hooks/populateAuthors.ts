@@ -11,7 +11,7 @@ export const populateAuthors: CollectionAfterReadHook = async ({ doc, req, req: 
     for (const author of doc.authors) {
       const authorDoc = await payload.findByID({
         id: typeof author === 'object' ? author?.id : author,
-        collection: 'users',
+        collection: 'people',
         depth: 0,
         req,
       })

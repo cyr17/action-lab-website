@@ -152,6 +152,16 @@ export const CaseStudies: CollectionConfig = {
       ],
     },
     {
+
+      name: 'readingTime',
+      type: 'number',
+      label: 'Reading Time (minutes)',
+      admin: {
+        position: 'sidebar',
+      },
+
+    },
+    {
       name: 'publishedAt',
       type: 'date',
       admin: {
@@ -178,7 +188,7 @@ export const CaseStudies: CollectionConfig = {
         position: 'sidebar',
       },
       hasMany: true,
-      relationTo: 'users',
+      relationTo: 'people',
     },
     // This field is only used to populate the user data via the `populateAuthors` hook
     // This is because the `user` collection has access control locked to protect user privacy
