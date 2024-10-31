@@ -24,7 +24,14 @@ const BackButton = () => {
     console.log("current path",currentPath)
     let text = 'Back'
 
-    if (previousPath?.includes('caseStudies/')) {
+
+    if (currentPath === '/casestudies') {
+      text = 'Back to Home'
+    }
+    else if (currentPath === '/solutions') {
+      text = 'Back to Home'
+    }
+    else if (previousPath?.includes('caseStudies/')) {
       // text should be string after 'caseStudies/'
       text = previousPath.split('caseStudies/')[1]
       
