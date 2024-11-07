@@ -1,4 +1,3 @@
-import type { Post } from 'src/payload-types'
 
 import configPromise from '@payload-config'
 import { getPayloadHMR } from '@payloadcms/next/utilities'

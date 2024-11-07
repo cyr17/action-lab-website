@@ -26,7 +26,7 @@ export const Card: React.FC<{
   alignItems?: 'center'
   className?: string
   doc?: Solution | ImpactArea | Person
-  relationTo?: 'posts' | 'solutions' | 'caseStudies' | 'impactAreas' | 'people'
+  relationTo?: 'solutions' | 'caseStudies' | 'impactAreas' | 'people'
   showImpactAreas?: boolean
   title?: string
   aspectClass?: string
@@ -34,7 +34,8 @@ export const Card: React.FC<{
   const { card, link } = useClickableCard({})
   const { className, doc, relationTo, showImpactAreas, title: titleFromProps } = props
 
-  const { slug,  meta, title} = doc || {}
+  const { title} = doc || {}
+  const { slug,  meta} = doc as ImpactArea || doc as Solution
   const {subtitle } = doc as Solution
   const {role ,photo} = doc as Person
   const { image: metaImage } = meta || {}

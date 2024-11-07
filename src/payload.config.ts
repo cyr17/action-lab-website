@@ -20,16 +20,13 @@ import path from 'path'
 import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
 
-import Categories from './payload/collections/Categories'
 import { Media } from './payload/collections/Media'
 import { Pages } from './payload/collections/Pages'
-import { Posts } from './payload/collections/Posts'
 import Users from './payload/collections/Users'
 import { Footer } from './payload/globals/Footer/Footer'
-import { Header } from './payload/globals/Header/Header'
 import { revalidateRedirects } from './payload/hooks/revalidateRedirects'
 import { GenerateTitle, GenerateURL } from '@payloadcms/plugin-seo/types'
-import { Page, Post,Solution,CaseStudy,ImpactArea,Person } from 'src/payload-types'
+import { Page, Solution,CaseStudy,ImpactArea,Person } from 'src/payload-types'
 import { CaseStudies } from './payload/collections/CaseStudies'
 import { Solutions } from './payload/collections/Solutions'
 import { ImpactAreas } from './payload/collections/ImpactAreas'
@@ -41,11 +38,11 @@ import { FooterMedia } from './payload/globals/FooterMedia/FooterMedia'
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
-const generateTitle: GenerateTitle<Post | Page | Solution | CaseStudy | ImpactArea > = ({ doc }) => {
+const generateTitle: GenerateTitle< Page | Solution | CaseStudy | ImpactArea > = ({ doc }) => {
   return doc?.title ? `${doc.title} | ActionLab Website` : 'ActionLab Website'
 }
 
-const generateURL: GenerateURL<Post | Page | Solution | CaseStudy | ImpactArea > = ({ doc }) => {
+const generateURL: GenerateURL< Page | Solution | CaseStudy | ImpactArea > = ({ doc }) => {
   return doc?.slug
     ? `${process.env.NEXT_PUBLIC_SERVER_URL}/${doc.slug}`
     : process.env.NEXT_PUBLIC_SERVER_URL
@@ -125,7 +122,7 @@ export default buildConfig({
       connectionString: process.env.DATABASE_URI || '',
     },
   }),
-  collections: [Pages, Posts, Media, Categories, Users,CaseStudies,Solutions,ImpactAreas,People],
+  collections: [Pages, Media, Users,CaseStudies,Solutions,ImpactAreas,People],
   cors: [process.env.PAYLOAD_PUBLIC_SERVER_URL || ''].filter(Boolean),
   csrf: [process.env.PAYLOAD_PUBLIC_SERVER_URL || ''].filter(Boolean),
   endpoints: [
@@ -134,7 +131,7 @@ export default buildConfig({
   globals: [FooterMedia, Footer,MegaMenu,SocialMedia],
   plugins: [
     redirectsPlugin({
-      collections: ['pages', 'posts','caseStudies','solutions','impactAreas'],
+      collections: ['pages','caseStudies','solutions','impactAreas'],
       overrides: {
         // @ts-expect-error
         fields: ({ defaultFields }) => {

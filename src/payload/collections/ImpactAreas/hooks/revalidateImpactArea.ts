@@ -2,9 +2,9 @@ import type { CollectionAfterChangeHook } from 'payload'
 
 import { revalidatePath } from 'next/cache'
 
-import type { Post } from '../../../../payload-types'
+import type { ImpactArea } from '../../../../payload-types'
 
-export const revalidateImpactArea: CollectionAfterChangeHook<Post> = ({
+export const revalidateImpactArea: CollectionAfterChangeHook<ImpactArea> = ({
   doc,
   previousDoc,
   req: { payload },

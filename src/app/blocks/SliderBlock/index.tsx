@@ -11,7 +11,7 @@ import { SliderArchive } from '@/components/SliderArchive'
 export const SliderBlock: React.FC<
   SliderBlockProps & {
     id?: string,
-    collection: 'posts' | 'solutions' | 'caseStudies' | 'impactAreas' | 'people',
+    collection: 'solutions' | 'caseStudies' | 'impactAreas' | 'people',
   }
 > = async (props) => {
   const { id, introContent, limit = 3, populateBy, selectedDocs, relationTo } = props

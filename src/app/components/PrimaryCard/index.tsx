@@ -4,13 +4,13 @@ import useClickableCard from '@/utilities/useClickableCard'
 import Link from 'next/link'
 import React, { Fragment } from 'react'
 
-import type { CaseStudy, Post, Solution } from '../../../payload-types'
+import type { CaseStudy, Solution } from '../../../payload-types'
 
 export const PrimaryCard: React.FC<{
   alignItems?: 'center'
   className?: string
   doc?: CaseStudy | Solution
-  relationTo?: 'posts' | 'solutions' | 'caseStudies' | 'impactAreas'
+  relationTo?: 'solutions' | 'caseStudies' | 'impactAreas'
   showImpactAreas?: boolean
   title?: string
   color?: string

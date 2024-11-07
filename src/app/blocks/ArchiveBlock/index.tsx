@@ -1,5 +1,3 @@
-import type { Post } from 'src/payload-types'
-
 import { cn } from '@/utilities/cn'
 import configPromise from '@payload-config'
 import { getPayloadHMR } from '@payloadcms/next/utilities'
@@ -14,7 +12,7 @@ import { CollectionArchive } from '../../components/CollectionArchive'
 export const ArchiveBlock: React.FC<
   ArchiveBlockProps & {
     id?: string,
-    collection: 'posts' | 'solutions' | 'caseStudies' | 'impactAreas' | 'people',
+    collection: 'solutions' | 'caseStudies' | 'impactAreas' | 'people',
     impactAreas: any[],
   }
 > = async (props) => {
@@ -55,7 +53,7 @@ export const ArchiveBlock: React.FC<
     <div className={cn("my-16 pb-8 relative left-1/2 right-1/2 -mx-[50vw] w-screen max-w-none", colors("bg",props.blockColor))} id={`block-${id}`}>
       {introContent && (
         <div className="p-8 container mb-16">
-          <RichText className="ml-0 max-w-[48rem]" content={introContent} enableGutter={false} />
+          <RichText className="ml-0 max-w-none" content={introContent} enableGutter={false} />
         </div>
       )}
       <CollectionArchive items={items} collection={relationTo} />

@@ -26,7 +26,6 @@ import {
   OverviewField,
   PreviewField,
 } from '@payloadcms/plugin-seo/fields'
-import { Posts } from '../Posts'
 import { CallToAction } from '../../blocks/CallToAction'
 import { Content } from '../../blocks/Content'
 import { Archive } from '../../blocks/ArchiveBlock'

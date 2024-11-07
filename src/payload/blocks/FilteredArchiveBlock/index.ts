@@ -46,13 +46,9 @@ export const FilteredArchive: Block = {
       admin: {
         condition: (_, siblingData) => siblingData.populateBy === 'collection',
       },
-      defaultValue: 'posts',
+      defaultValue: 'caseStudies',
       label: 'Collections To Show',
       options: [
-        {
-          label: 'Posts',
-          value: 'posts',
-        },
         {
           label: 'Case Studies',
           value: 'caseStudies',
@@ -89,7 +85,7 @@ export const FilteredArchive: Block = {
       },
       hasMany: true,
       label: 'Selection',
-      relationTo: ['posts','caseStudies','solutions','impactAreas','people'],
+      relationTo: ['caseStudies','solutions','impactAreas','people'],
     },
   ],
   labels: {

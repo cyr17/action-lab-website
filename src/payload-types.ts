@@ -12,9 +12,7 @@ export interface Config {
   };
   collections: {
     pages: Page;
-    posts: Post;
     media: Media;
-    categories: Category;
     users: User;
     caseStudies: CaseStudy;
     solutions: Solution;
@@ -252,15 +250,11 @@ export interface Page {
           [k: string]: unknown;
         } | null;
         populateBy?: ('collection' | 'selection') | null;
-        relationTo?: ('posts' | 'caseStudies' | 'solutions' | 'impactAreas' | 'people') | null;
+        relationTo?: ('caseStudies' | 'solutions' | 'impactAreas' | 'people') | null;
         impactAreas?: (number | ImpactArea)[] | null;
         limit?: number | null;
         selectedDocs?:
           | (
-              | {
-                  relationTo: 'posts';
-                  value: number | Post;
-                }
               | {
                   relationTo: 'caseStudies';
                   value: number | CaseStudy;
@@ -303,14 +297,10 @@ export interface Page {
           [k: string]: unknown;
         } | null;
         populateBy?: ('collection' | 'selection') | null;
-        relationTo?: ('posts' | 'caseStudies' | 'solutions' | 'impactAreas' | 'people') | null;
+        relationTo?: ('caseStudies' | 'solutions' | 'impactAreas' | 'people') | null;
         limit?: number | null;
         selectedDocs?:
           | (
-              | {
-                  relationTo: 'posts';
-                  value: number | Post;
-                }
               | {
                   relationTo: 'caseStudies';
                   value: number | CaseStudy;
@@ -350,14 +340,10 @@ export interface Page {
           [k: string]: unknown;
         } | null;
         populateBy?: ('collection' | 'selection') | null;
-        relationTo?: ('posts' | 'caseStudies' | 'solutions' | 'impactAreas' | 'people') | null;
+        relationTo?: ('caseStudies' | 'solutions' | 'impactAreas' | 'people') | null;
         limit?: number | null;
         selectedDocs?:
           | (
-              | {
-                  relationTo: 'posts';
-                  value: number | Post;
-                }
               | {
                   relationTo: 'caseStudies';
                   value: number | CaseStudy;
@@ -541,59 +527,6 @@ export interface User {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "posts".
- */
-export interface Post {
-  id: number;
-  title: string;
-  content: {
-    root: {
-      type: string;
-      children: {
-        type: string;
-        version: number;
-        [k: string]: unknown;
-      }[];
-      direction: ('ltr' | 'rtl') | null;
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-      indent: number;
-      version: number;
-    };
-    [k: string]: unknown;
-  };
-  relatedPosts?: (number | Post)[] | null;
-  categories?: (number | Category)[] | null;
-  impactAreas?: (number | ImpactArea)[] | null;
-  meta?: {
-    title?: string | null;
-    image?: number | Media | null;
-    description?: string | null;
-  };
-  publishedAt?: string | null;
-  authors?: (number | User)[] | null;
-  populatedAuthors?:
-    | {
-        id?: string | null;
-        name?: string | null;
-      }[]
-    | null;
-  slug?: string | null;
-  updatedAt: string;
-  createdAt: string;
-  _status?: ('draft' | 'published') | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "categories".
- */
-export interface Category {
-  id: number;
-  title: string;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "caseStudies".
  */
 export interface CaseStudy {
@@ -751,15 +684,11 @@ export interface CaseStudy {
           [k: string]: unknown;
         } | null;
         populateBy?: ('collection' | 'selection') | null;
-        relationTo?: ('posts' | 'caseStudies' | 'solutions' | 'impactAreas' | 'people') | null;
+        relationTo?: ('caseStudies' | 'solutions' | 'impactAreas' | 'people') | null;
         impactAreas?: (number | ImpactArea)[] | null;
         limit?: number | null;
         selectedDocs?:
           | (
-              | {
-                  relationTo: 'posts';
-                  value: number | Post;
-                }
               | {
                   relationTo: 'caseStudies';
                   value: number | CaseStudy;
@@ -799,14 +728,10 @@ export interface CaseStudy {
           [k: string]: unknown;
         } | null;
         populateBy?: ('collection' | 'selection') | null;
-        relationTo?: ('posts' | 'caseStudies' | 'solutions' | 'impactAreas' | 'people') | null;
+        relationTo?: ('caseStudies' | 'solutions' | 'impactAreas' | 'people') | null;
         limit?: number | null;
         selectedDocs?:
           | (
-              | {
-                  relationTo: 'posts';
-                  value: number | Post;
-                }
               | {
                   relationTo: 'caseStudies';
                   value: number | CaseStudy;
@@ -1034,15 +959,11 @@ export interface Solution {
           [k: string]: unknown;
         } | null;
         populateBy?: ('collection' | 'selection') | null;
-        relationTo?: ('posts' | 'caseStudies' | 'solutions' | 'impactAreas' | 'people') | null;
+        relationTo?: ('caseStudies' | 'solutions' | 'impactAreas' | 'people') | null;
         impactAreas?: (number | ImpactArea)[] | null;
         limit?: number | null;
         selectedDocs?:
           | (
-              | {
-                  relationTo: 'posts';
-                  value: number | Post;
-                }
               | {
                   relationTo: 'caseStudies';
                   value: number | CaseStudy;
@@ -1082,14 +1003,10 @@ export interface Solution {
           [k: string]: unknown;
         } | null;
         populateBy?: ('collection' | 'selection') | null;
-        relationTo?: ('posts' | 'caseStudies' | 'solutions' | 'impactAreas' | 'people') | null;
+        relationTo?: ('caseStudies' | 'solutions' | 'impactAreas' | 'people') | null;
         limit?: number | null;
         selectedDocs?:
           | (
-              | {
-                  relationTo: 'posts';
-                  value: number | Post;
-                }
               | {
                   relationTo: 'caseStudies';
                   value: number | CaseStudy;
@@ -1361,10 +1278,6 @@ export interface Redirect {
       | ({
           relationTo: 'pages';
           value: number | Page;
-        } | null)
-      | ({
-          relationTo: 'posts';
-          value: number | Post;
         } | null)
       | ({
           relationTo: 'caseStudies';

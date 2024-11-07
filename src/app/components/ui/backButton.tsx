@@ -18,10 +18,6 @@ const BackButton = () => {
        
        setCurrentPath(navigationStack[navigationStack.length - 1]);
      }
-
-    console.log("Previous path",previousPath)
-    
-    console.log("current path",currentPath)
     let text = 'Back'
 
 
@@ -64,7 +60,6 @@ const BackButton = () => {
     router.back()
   }
 
-  console.log("current path2",currentPath)
   if ( currentPath === '/'){
     return (
       <>

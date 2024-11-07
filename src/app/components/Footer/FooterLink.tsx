@@ -3,7 +3,7 @@ import { cn } from '@/utilities/cn'
 import Link from 'next/link'
 import React from 'react'
 
-import type { CaseStudy, ImpactArea, Page, Post, Solution } from '../../../payload-types'
+import type { CaseStudy, ImpactArea, Page, Solution } from '../../../payload-types'
 
 type FooterLinkType = {
   appearance?: 'inline' | ButtonProps['variant']
@@ -12,8 +12,8 @@ type FooterLinkType = {
   label?: string
   newTab?: boolean
   reference?: {
-    relationTo: 'pages' | 'posts' | 'solutions' | 'caseStudies' | 'impactAreas'
-    value: Page | Post | Solution | CaseStudy | ImpactArea | string | number
+    relationTo: 'pages' | 'solutions' | 'caseStudies' | 'impactAreas'
+    value: Page | Solution | CaseStudy | ImpactArea | string | number
   }
   size?: ButtonProps['size']
   type?: 'custom' | 'reference'

@@ -1,4 +1,3 @@
-import type { Post } from 'src/payload-types'
 
 import configPromise from '@payload-config'
 import { getPayloadHMR } from '@payloadcms/next/utilities'
@@ -12,7 +11,7 @@ import { FilteredArchiveBlockProps } from './types'
 export const FilteredArchiveBlock: React.FC<
   FilteredArchiveBlockProps & {
     id?: string,
-    collection: 'posts' | 'solutions' | 'caseStudies' | 'impactAreas' | 'people',
+    collection:  'solutions' | 'caseStudies' | 'impactAreas' | 'people',
   }
 > = async (props) => {
   const { id, introContent, limit = 3, populateBy, selectedDocs, relationTo } = props
