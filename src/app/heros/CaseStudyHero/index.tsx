@@ -10,7 +10,7 @@ import BackButton from '../../components/ui/backButton'
 export const CaseStudyHero: React.FC<{
   caseStudy: CaseStudy
 }> = ({ caseStudy }) => {
-  const { impactAreas, meta: { image: metaImage } = {}, populatedAuthors, publishedAt, title } = caseStudy
+  const { impactAreas, meta: { image: metaImage } = {}, populatedAuthors, publishedAt, title ,readingTime} = caseStudy
 
   return (
 
@@ -45,13 +45,9 @@ export const CaseStudyHero: React.FC<{
               })}
             </div>
           </div>
-          {publishedAt && (
-            <div className="flex flex-col gap-1">
-              <p className="text-sm">Date Published</p>
-
-              <time dateTime={publishedAt}>{formatDateTime(publishedAt)}</time>
+            <div className="">
+                {readingTime && <div className="text-sm mb-6">{readingTime} min read</div>}
             </div>
-          )}
         </div>
           
       </div>

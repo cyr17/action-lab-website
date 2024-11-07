@@ -14,6 +14,7 @@ import { populatePublishedAt } from '../../hooks/populatePublishedAt'
 import { generatePreviewPath } from '../../utilities/generatePreviewPath'
 import { revalidatePage } from './hooks/revalidatePage'
 import { SideBySide } from '../../blocks/SideBySide'
+import { TeamGallery } from '../../blocks/TeamGallery'
 import {
   MetaDescriptionField,
   MetaImageField,
@@ -62,7 +63,7 @@ export const Pages: CollectionConfig = {
             {
               name: 'layout',
               type: 'blocks',
-              blocks: [CallToAction, Content, SideBySide, MediaBlock, Archive, Slider, FilteredArchive, FormBlock],
+              blocks: [CallToAction, Content, SideBySide, MediaBlock, Archive, Slider, FilteredArchive, FormBlock , TeamGallery],
               required: true,
             },
           ],

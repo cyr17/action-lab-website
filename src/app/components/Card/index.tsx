@@ -4,14 +4,29 @@ import useClickableCard from '@/utilities/useClickableCard'
 import Link from 'next/link'
 import React from 'react'
 
-import type { ImpactArea, Solution } from '../../../payload-types'
+import type { ImpactArea, Solution, Person } from '../../../payload-types'
 import { Media } from '../Media'
+
+// Type guard for Person
+function isPerson(doc: any): doc is Person {
+  return (doc as Person).role !== undefined;
+}
+
+// Type guard for Solution
+function isSolution(doc: any): doc is Solution {
+  return (doc as Solution).subtitle !== undefined;
+}
+
+// Type guard for ImpactArea
+function isImpactArea(doc: any): doc is ImpactArea {
+  return (doc as ImpactArea).meta !== undefined && (doc as ImpactArea).meta.image !== undefined;
+}
 
 export const Card: React.FC<{
   alignItems?: 'center'
   className?: string
-  doc?: Solution | ImpactArea
-  relationTo?: 'posts' | 'solutions' | 'caseStudies' | 'impactAreas'
+  doc?: Solution | ImpactArea | Person
+  relationTo?: 'posts' | 'solutions' | 'caseStudies' | 'impactAreas' | 'people'
   showImpactAreas?: boolean
   title?: string
   aspectClass?: string
@@ -21,8 +36,24 @@ export const Card: React.FC<{
 
   const { slug,  meta, title} = doc || {}
   const {subtitle } = doc as Solution
+  const {role ,photo} = doc as Person
   const { image: metaImage } = meta || {}
-  const titleToUse = titleFromProps || title
+
+  let titleToUse;
+  if (isPerson(doc)) {
+    titleToUse = doc.name;
+  } else {
+    titleToUse = titleFromProps || title;
+  }
+
+  let subtitleToUse;
+  if (isPerson(doc)) {
+    subtitleToUse = doc.title;
+  }
+  else {
+    subtitleToUse = subtitle;
+  }
+
   const href = `/${relationTo}/${slug}`
   const aspectClass = props.aspectClass || "h-[300px] sm:h-[400px] md:h-[450px] lg:h-[542px] w-full"
   return (
@@ -47,6 +78,17 @@ export const Card: React.FC<{
             <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-70"></div>
           </div>
         )}
+        {photo && typeof photo !== 'string' && (
+          <div className="inset-0 transition-transform duration-300 group-hover:scale-110">
+            <Media
+              resource={photo}
+              size="360px"
+              imgClassName="object-cover w-full h-[300px] sm:h-[400px] md:h-[450px] lg:h-[542px]"
+            />
+            {/* Dark Gradient Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-70"></div>
+            </div>
+        )}
       </div>
 
       <div className='absolute bottom-4 left-4 right-4 z-10 flex justify-between items-end text-white'>
@@ -60,7 +102,7 @@ export const Card: React.FC<{
               </h3>
             </div>
           )}
-          {subtitle && <div className="mt-2 text-sm text-white opacity-90">{subtitle}</div>}
+          {subtitleToUse && <div className="mt-2 text-sm text-white opacity-90">{subtitleToUse}</div>}
         </div>
         <div className=''>
           <svg

@@ -402,6 +402,30 @@ export interface Page {
         blockName?: string | null;
         blockType: 'formBlock';
       }
+    | {
+        blockColor?:
+          | ('white' | 'gray' | 'black' | 'orange' | 'red' | 'green' | 'yellow' | 'blue' | 'pink' | 'purple')
+          | null;
+        introContent?: {
+          root: {
+            type: string;
+            children: {
+              type: string;
+              version: number;
+              [k: string]: unknown;
+            }[];
+            direction: ('ltr' | 'rtl') | null;
+            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+            indent: number;
+            version: number;
+          };
+          [k: string]: unknown;
+        } | null;
+        relationTo?: 'people' | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'gallery';
+      }
   )[];
   meta?: {
     title?: string | null;

@@ -12,6 +12,7 @@ import { MediaBlock } from '../../blocks/MediaBlock'
 import { toKebabCase } from '../../utilities/toKebabCase'
 import { SideBySideBlock } from '../../blocks/SideBySide'
 import { SliderBlock } from '../../blocks/SliderBlock'
+import { MemberGalleryBlock } from '../../blocks/MemberGallery'
 
 const blockComponents = {
   archive: ArchiveBlock,
@@ -22,6 +23,7 @@ const blockComponents = {
   mediaBlock: MediaBlock,
   sideBySide: SideBySideBlock,
   slider: SliderBlock,
+  gallery: MemberGalleryBlock
 }
 
 export const Blocks: React.FC<{
@@ -36,6 +38,7 @@ export const Blocks: React.FC<{
       <Fragment>
         {blocks.map((block, index) => {
           const { blockName, blockType } = block
+          console.log("HOIT",blockName,blockType)
 
           if (blockType && blockType in blockComponents) {
             const Block = blockComponents[blockType]

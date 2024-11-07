@@ -41,11 +41,11 @@ import { FooterMedia } from './payload/globals/FooterMedia/FooterMedia'
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
-const generateTitle: GenerateTitle<Post | Page | Solution | CaseStudy | ImpactArea | Person> = ({ doc }) => {
-  return doc?.title ? `${doc.title} | Payload Website Template` : 'Payload Website Template'
+const generateTitle: GenerateTitle<Post | Page | Solution | CaseStudy | ImpactArea > = ({ doc }) => {
+  return doc?.title ? `${doc.title} | ActionLab Website` : 'ActionLab Website'
 }
 
-const generateURL: GenerateURL<Post | Page | Solution | CaseStudy | ImpactArea | Person> = ({ doc }) => {
+const generateURL: GenerateURL<Post | Page | Solution | CaseStudy | ImpactArea > = ({ doc }) => {
   return doc?.slug
     ? `${process.env.NEXT_PUBLIC_SERVER_URL}/${doc.slug}`
     : process.env.NEXT_PUBLIC_SERVER_URL
