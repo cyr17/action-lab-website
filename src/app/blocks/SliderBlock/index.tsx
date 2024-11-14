@@ -37,9 +37,7 @@ export const SliderBlock: React.FC<
   return (
     <div className={cn("my-16 pb-8 relative left-1/2 right-1/2 -mx-[50vw] w-screen max-w-none", colors("bg",props.blockColor))} id={`block-${id}`}>
       {introContent && (
-        <div className="p-8 container mb-16">
           <RichText className="ml-0 max-w-[48rem]" content={introContent} enableGutter={false} />
-        </div>
       )}
       <SliderArchive items={items} collection={relationTo} />
     </div>
