@@ -6,6 +6,8 @@ import React, { useEffect, useState } from 'react'
 import { Gutter, Button } from '@payloadcms/ui'
 import type { MegaMenu } from '../../../payload-types'
 
+import { Dialog, DialogPanel } from '@headlessui/react'
+
 import { Logo } from '../Logo/Logo'
 import { Hamburger } from './Hamburger'
 import { Modal, useModal, ModalToggler } from '@faceless-ui/modal'
@@ -23,6 +25,7 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ megaMenu }) => {
   const { headerTheme, setHeaderTheme } = useHeaderTheme()
   const pathname = usePathname()
   const { toggleModal, isModalOpen } = useModal()
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   useEffect(() => {
     setHeaderTheme(null)
@@ -50,34 +53,41 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ megaMenu }) => {
           <Logo />
         </Link>
 
-        <button type="button" onClick={() => toggleModal(menuSlug)}>
+        <button type="button" onClick={() => setIsMenuOpen(!isMenuOpen)}>
             <Hamburger />
         </button>
 
-        <Modal slug={menuSlug} closeOnBlur className={`bg-black fixed t-0 w-screen min-h-[70vh] h-fit transition-all duration-700 ease-in-out ${isModalOpen(menuSlug) ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}`}>
-          <div className="text-white z-50 flex flex-col">
-            {/* Close button */}
-            <div className="flex justify-end p-6">
-              <ModalToggler slug={menuSlug} className="text-white t-0 ml-auto mr-0">
-                <svg width="53" height="53" viewBox="0 0 53 53" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="10.8284" y="8" width="48" height="4" rx="2" transform="rotate(45 10.8284 8)" fill="white" />
-                  <rect x="8" y="41.9411" width="48" height="4" rx="2" transform="rotate(-45 8 41.9411)" fill="white" />
-                </svg>
-              </ModalToggler>
-            </div>
-            {/* Navigation Items */}
-            <nav className="flex flex-col items-center space-y-6 mt-12">
-              {megaMenu?.navItems?.map(({ link }, i) => (
-                <div key={i} className="w-full max-w-[600px]">
-                  {/* Navigation Link with Arrow Icon */}
-                  <CMSLink className="flex justify-between items-center w-full border-b border-gray-700 py-4 px-6" {...link}>
-                    <ArrowIcon />
-                  </CMSLink>
+        <Dialog open={isMenuOpen} onClose={setIsMenuOpen} className="relative z-20">
+          <div className="fixed -mt-10 inset-0 z-10 overflow-y-auto">
+            <DialogPanel
+              transition
+              className="absolute w-screen left-0 transform rounded-lg text-white shadow-xl transition-all data-[closed]:-translate-y-[100vh] data-[closed]:opacity-0 data-[enter]:duration-300 data-[enter]:tranlate-y-0 data-[enter]:opacity-100 data-[enter]:ease-out data-[leave]:duration-200 data-[leave]:ease-in my-8 sm:w-full sm:max-w-lg data-[closed]:sm:-translate-y-screen data-[closed]:sm:scale-95"
+            >
+            <div className='bg-black w-screen h-[70vh] '>
+                <div className='flex justify-end mt-0 pt-8 pr-[2rem] ml-auto mr-4'>
+                  <button className="text-white ml-auto mr-0" onClick={() => setIsMenuOpen(false)}>
+                    <svg width="53" height="53" viewBox="0 0 53 53" 
+                    fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <rect x="10.8284" y="8" width="48" height="4" rx="2" transform="rotate(45 10.8284 8)" fill="white" />
+                      <rect x="8" y="41.9411" width="48" height="4" rx="2" transform="rotate(-45 8 41.9411)" fill="white" />
+                    </svg>
+                  </button>
                 </div>
-              ))}
-            </nav>
-          </div>
-        </Modal>
+
+                <nav className="flex flex-col items-center space-y-6 mt-0 pt-[5rem]">
+                  {megaMenu?.navItems?.map(({ link }, i) => (
+                    <div key={i} className="w-full max-w-[600px]">
+                      {/* Navigation Link with Arrow Icon */}
+                      <CMSLink className="flex justify-between items-center w-full border-b border-gray-700 py-4 px-6" {...link}>
+                        <ArrowIcon />
+                      </CMSLink>
+                    </div>
+                  ))}
+                </nav>
+            </div> 
+          </DialogPanel>
+        </div>
+    </Dialog>
     </header>
   )
 }

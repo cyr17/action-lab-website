@@ -14,25 +14,13 @@ import { Providers } from '../providers'
 import { InitTheme } from '../providers/Theme/InitTheme'
 import { mergeOpenGraph } from '../utilities/mergeOpenGraph'
 import './globals.css'
-import { ModalProvider,ModalContainer } from '@faceless-ui/modal'
-import { WindowInfoProvider } from '@faceless-ui/window-info'
-import { GridProvider } from '@faceless-ui/css-grid'
 
 import { PathTracker } from '../components/PathTracker'
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html className={cn(GeistSans.variable, GeistMono.variable)} lang="en" suppressHydrationWarning>
-     <WindowInfoProvider
-      breakpoints={{
-        xs: `(max-width: 560px)`,
-        sm: `(min-width: 640px)`,
-        md: `(min-width: 768px)`,
-        lg: `(min-width: 1024px)`,
-        xl: `(min-width: 1280px)`,
-      }}>
-      <ModalProvider>
-        <GridProvider>
+     
 
       <head>
         <InitTheme />
@@ -43,7 +31,6 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <Providers>
           <AdminBar />
           <LivePreviewListener />
-
           <Header />
           <main>
             <PathTracker />
@@ -52,10 +39,6 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           <Footer />
         </Providers>
       </body>
-        <ModalContainer />
-        </GridProvider>
-      </ModalProvider>
-      </WindowInfoProvider>
     </html>
   )
 }
