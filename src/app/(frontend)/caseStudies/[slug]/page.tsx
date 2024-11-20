@@ -48,24 +48,25 @@ export default async function CaseStudy({ params: { slug = 'casestudies' } }) {
       <CaseStudyHero caseStudy={caseStudy} />
 
       <div className="flex flex-col gap-4 pt-8">
-        <div className="container lg:grid lg:grid-cols-[1fr_48rem_1fr] grid-rows-[1fr]">
+        <div className="container lg:grid lg:grid-cols-[1fr_60rem_1fr] grid-rows-[1fr]">
           <div className="lg:col-start-2 lg:col-span-1">
             <Blocks blocks={caseStudy.layout} />
+            <RelatedSolutions
+              className="mt-12"
+              docs={caseStudy.relatedSolutions.filter((solution) => typeof solution === 'object')}
+            />
+
+            <div className="mt-4 w-[60rem] border-b-2 border-black ml-auto mr-auto"/>
+
+            <OtherStudies
+              className="mt-12"
+              docs={caseStudy.relatedCaseStudies.filter((caseStudy) => typeof caseStudy === 'object')}
+            />
+        
           </div>
         </div>
 
-        <RelatedSolutions
-          className="mt-12"
-          docs={caseStudy.relatedSolutions.filter((solution) => typeof solution === 'object')}
-        />
-
-        <div className="mt-4 w-[90vw] border-b-2 border-black ml-auto mr-auto"/>
-
-        <OtherStudies
-          className="mt-12"
-          docs={caseStudy.relatedCaseStudies.filter((caseStudy) => typeof caseStudy === 'object')}
-        />
-        
+       
       </div>
     </article>
   )

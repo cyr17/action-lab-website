@@ -50,7 +50,7 @@ export const OtherSolutions: React.FC<OtherSolutionsProps> = async (props) => {
         {(await docs)?.map((doc, index) => {
           if (typeof doc === 'string') return null
 
-          return <Card key={index} doc={doc} relationTo="solutions" showImpactAreas />
+          return <Card key={index} doc={doc} relationTo="solutions" showImpactAreas  aspectClass='max-h-[300px] w-full' />
         })}
       </div>
     </div>

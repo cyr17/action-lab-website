@@ -46,10 +46,10 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ megaMenu }) => {
 
   return (
     <header
-      className="sticky top-0 h-[4rem] border-t border-border bg-black/90 text-white z-20 py-8 px-[2rem] sm:px-[4rem] flex justify-between items-center w-full backdrop-blur-sm"
+      className="sticky top-0 h-[5rem] border-t border-border bg-black/90 text-white z-20 py-8 px-[2rem] sm:px-[4rem] flex justify-between items-center w-full backdrop-blur-sm"
       {...(theme ? { 'data-theme': theme } : {})}
     >
-        <Link href="/">
+        <Link href="/" className='lg:px-[1rem]'>
           <Logo />
         </Link>
 

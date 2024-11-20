@@ -54,20 +54,17 @@ export default async function Solution({ params: { slug = 'solutions' } }) {
             
             <SolutionHero solution={solution} />
             <Blocks blocks={solution.layout} />
+            <RelatedCaseStudies
+              className="mt-12"
+              docs={solution.relatedCaseStudies.filter((caseStudy) => typeof caseStudy === 'object')}
+            />
+
           </div>
         </div>
-
-        <RelatedCaseStudies
-          className="mt-12"
-          docs={solution.relatedCaseStudies.filter((caseStudy) => typeof caseStudy === 'object')}
-        />
-
-
-        <div className="mt-4 w-[90vw] border-b-2 border-black ml-auto mr-auto"/>
         
-        <OtherSolutions
-          className="mt-12"
-        />
+        <div className="mt-4 w-[74rem] border-b-2 border-black ml-auto mr-auto"/>
+  
+        <OtherSolutions className="mt-12 max-w-[74rem]"/>
       </div>
     </article>
   )

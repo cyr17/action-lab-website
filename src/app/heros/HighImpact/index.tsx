@@ -17,7 +17,7 @@ export const HighImpactHero: React.FC<Page['hero']> = ({ links, media, richText 
   })
 
   return (
-    <div className="relative -mt-[4rem] min-h-[70vh] sm:min-h-[35rem] text-white z-10 bg-black" data-theme="light">
+    <div className="relative -mt-[6rem] min-h-[70vh] sm:min-h-[35rem] text-white z-10 bg-black" data-theme="light">
     {/* Free-floating left-side content */}
     <div className="container mr-0 lg:mx-auto mb-32 z-20 relative flex-grow-0 flex-shrink-0 basis-[30%] py-8">
       <div className="max-w-[34rem]">
