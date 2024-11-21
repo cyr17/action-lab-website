@@ -19,7 +19,7 @@ const SolutionCard:React.FC<{
     <div >
       {docs?.map((doc, index) => {
           if (typeof doc === 'string') return null
-          return <div className='grid md:grid-cols-12 bg-gray-300 rounded-lg h-fit w-full my-4'>
+          return <div key={index} className='grid md:grid-cols-12 bg-gray-300 rounded-lg h-fit w-full my-4'>
                   <div className='p-4 h-full col-span-1 md:col-span-6 lg:col-span-4 md:order-2'>
                       <Card key={index} doc={doc} relationTo="solutions" aspectClass='max-h-[300px] w-full' />
                   </div>
