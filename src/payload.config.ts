@@ -2,6 +2,7 @@
 import { postgresAdapter } from '@payloadcms/db-postgres'
 
 import { payloadCloudPlugin } from '@payloadcms/plugin-cloud'
+import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob'
 import { formBuilderPlugin } from '@payloadcms/plugin-form-builder'
 import { nestedDocsPlugin } from '@payloadcms/plugin-nested-docs'
 import { redirectsPlugin } from '@payloadcms/plugin-redirects'
@@ -185,7 +186,13 @@ export default buildConfig({
         },
       },
     }),
-    payloadCloudPlugin(), // storage-adapter-placeholder
+    vercelBlobStorage({
+      enabled: true,
+      collections:{
+        media: true,
+      },
+      token: process.env.BLOB_READ_WRITE_TOKEN,
+    }),
   ],
   secret: process.env.PAYLOAD_SECRET,
   sharp,
