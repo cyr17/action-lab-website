@@ -50,10 +50,10 @@ export const ArchiveBlock: React.FC<
   }
 
   return (
-    <div className={cn("my-16 pb-8 relative left-1/2 right-1/2 -mx-[50vw] w-screen max-w-none", colors("bg",props.blockColor))} id={`block-${id}`}>
+    <div className={cn("container pb-8 relative left-1/2 right-1/2 -mx-[50vw] w-screen max-w-none", colors("bg",props.blockColor))} id={`block-${id}`}>
       {introContent && (
         <div className="p-8 mb-16">
-          <RichText className="ml-0 px-[10rem] max-w-none" content={introContent} enableGutter={false} />
+          <RichText className="ml-0 sm:px-[10rem] max-w-none" content={introContent} enableGutter={false} />
         </div>
       )}
       <CollectionArchive items={items} collection={relationTo} />

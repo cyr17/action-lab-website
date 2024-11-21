@@ -13,7 +13,7 @@ export const CallToActionBlock: React.FC<
   }
 > = ({ links, richText }) => {
   return (
-    <div className="container w-full">
+    <div className="container w-full max-w-[90vw] sm:max-w-[74vw]">
       <div className="flex flex-col gap-8 md:justify-between md:items-center">
         <div className="w-[100%] lg:w-[110%] flex items-center text-center">
           <RichText className="" content={richText} enableGutter={false} />
