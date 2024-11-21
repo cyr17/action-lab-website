@@ -15,6 +15,7 @@ import PageClient from './page.client'
 import { OtherStudies } from '@/blocks/OtherStudies'
 import { RelatedSolutions } from '@/blocks/RelatedSolutions'
 import { Blocks } from '@/components/Blocks'
+import Crumbs from '@/components/ui/crumbs'
 
 export async function generateStaticParams() {
   const payload = await getPayloadHMR({ config: configPromise })
@@ -45,6 +46,7 @@ export default async function CaseStudy({ params: { slug = 'casestudies' } }) {
       {/* Allows redirects for valid pages too */}
       <PayloadRedirects disableNotFound url={url} />
 
+      <Crumbs />
       <CaseStudyHero caseStudy={caseStudy} />
 
       <div className="flex flex-col gap-4 pt-8">

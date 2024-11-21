@@ -16,7 +16,7 @@ import { RelatedSolutions } from '@/blocks/RelatedSolutions'
 import { RelatedCaseStudies } from '@/blocks/RelatedCaseStudies'
 import { OtherSolutions } from '@/blocks/OtherSolutions'
 import { Blocks } from '@/components/Blocks'
-
+import Crumbs from '@/components/ui/crumbs'
 
 export async function generateStaticParams() {
   const payload = await getPayloadHMR({ config: configPromise })
@@ -47,11 +47,11 @@ export default async function Solution({ params: { slug = 'solutions' } }) {
       {/* Allows redirects for valid pages too */}
       <PayloadRedirects disableNotFound url={url} />
 
-
+      
+      <Crumbs />
       <div className="flex flex-col gap-4 pt-8">
         <div className="container lg:grid lg:grid-cols-[1fr_60rem_1fr] grid-rows-[1fr]">
           <div className="lg:col-start-2 lg:col-span-1">
-            
             <SolutionHero solution={solution} />
             <Blocks blocks={solution.layout} />
             <RelatedCaseStudies

@@ -12,6 +12,7 @@ import { Blocks } from '../../components/Blocks'
 import { Hero } from '../../components/Hero'
 import { generateMeta } from '../../utilities/generateMeta'
 import { FooterMedia } from '@/components/FooterMedia'
+import Crumbs from '@/components/ui/crumbs'
 
 export async function generateStaticParams() {
   const payload = await getPayloadHMR({ config: configPromise })
@@ -53,11 +54,10 @@ export default async function Page({ params: { slug = 'home' } }) {
       {/* Allows redirects for valid pages too */}
       <PayloadRedirects disableNotFound url={url} />
       
+      <Crumbs/>
       <Hero {...hero} />
-      <div className="lg:grid lg:grid-cols-[1fr_74rem_1fr] grid-rows-[1fr]">
-          <div className="lg:col-start-2 lg:col-span-1">
+      <div className="flex flex-col ">
             <Blocks blocks={layout} />
-          </div>
         </div>
     </article>
     { page.slug === 'home' &&
