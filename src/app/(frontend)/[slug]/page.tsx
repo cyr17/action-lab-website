@@ -55,6 +55,7 @@ export default async function Page({ params: { slug = 'home' } }) {
       <PayloadRedirects disableNotFound url={url} />
       
       <Crumbs/>
+      <Hero {...hero} />
       <div className="flex flex-col ">
             <Blocks blocks={layout} />
         </div>
