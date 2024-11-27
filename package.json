@@ -17,7 +17,7 @@
     "reinstall": "cross-env NODE_OPTIONS=--no-deprecation rm -rf node_modules && rm pnpm-lock.yaml && pnpm --ignore-workspace install",
     "start": "cross-env NODE_OPTIONS=--no-deprecation next start",
     "remap": "cross-env NODE_OPTIONS=--no-deprecation payload generate:importmap && payload generate:types && next build",
-    "init": "cross-env NODE_OPTIONS=--no-deprecation payload migrate:create test1 && payload migrate && pnpm ii && pnpm remap"
+    "init": "cross-env NODE_OPTIONS=--no-deprecation payload migrate:create test1 && payload migrate && pnpm remap"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.0",
