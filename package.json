@@ -16,7 +16,8 @@
     "payload": "cross-env NODE_OPTIONS=--no-deprecation payload",
     "reinstall": "cross-env NODE_OPTIONS=--no-deprecation rm -rf node_modules && rm pnpm-lock.yaml && pnpm --ignore-workspace install",
     "start": "cross-env NODE_OPTIONS=--no-deprecation next start",
-    "remap": "cross-env NODE_OPTIONS=--no-deprecation payload generate:importmap && payload generate:types && next build"
+    "remap": "cross-env NODE_OPTIONS=--no-deprecation payload generate:importmap && payload generate:types && next build",
+    "init": "cross-env NODE_OPTIONS=--no-deprecation payload migrate:create test1 && payload migrate && pnpm ii && pnpm remap"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.0",
@@ -38,7 +39,6 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "cross-env": "^7.0.3",
-    "framer-motion": "^11.11.17",
     "geist": "^1.3.0",
     "graphql": "^16.8.2",
     "jsonwebtoken": "9.0.1",
