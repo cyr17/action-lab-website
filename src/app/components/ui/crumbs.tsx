@@ -13,8 +13,6 @@ const Crumbs = () => {
     const path = '/' + pathSegments.slice(0, index + 1).join('/');
     return { label: segment, path };
   });
-
-  console.log("Breadcrumb", breadcrumbs);
   // if path is home, return null
   if (breadcrumbs.length === 0) {
     return null;
